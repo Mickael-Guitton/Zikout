@@ -1,0 +1,7 @@
+<div class="user-card">
+  <%= image_tag "https://scontent-cdg4-2.xx.fbcdn.net/v/t31.18172-8/28164380_2018667218391127_7859842960838871948_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=f798df&_nc_ohc=P041s7ZDAvoQ7kNvgECt4j4&_nc_ht=scontent-cdg4-2.xx&oh=00_AYDeWw27y7jczaqW9fmYpOSW26xk2JvHwTJsXN5pdMmCPw&oe=66ED2276", class: "user-card_banner" %>
+  <%= image_tag "https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/66669599_2382152312042614_4688274961876385792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=53a332&_nc_ohc=unPweC4ZqukQ7kNvgG32DxP&_nc_ht=scontent-cdg4-1.xx&oh=00_AYD_SjrN6WILFQdI0KO-Jj6GETl_zR-ZCbS9ZtS5pjQs0A&oe=66ED44DC", class: "user-card_avatar" %>
+  <h2><%= current_user.name %></h2>
+  <p><%= current_user.style %></p>
+  <p><%= current_user.city %></p>
+</div>
