@@ -1,12 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon navbar-custom">
+  <div class="container">
+    <div class= "d-flex align-items-center">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "Zikout_logo.svg", alt: "Zikout", width: "12%" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do |f| %>
+      <%= f.text_field :query, class: "form-control form-custom me-2", placeholder: "Search", value: params[:query] %>
+      <%= f.submit "Search", class: "btn btn-custom" %>
+    <% end %>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
