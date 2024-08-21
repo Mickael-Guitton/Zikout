@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-custom {
+  border-bottom: solid;
+  border-image: linear-gradient(to right, #21CCBF 0%, #ec7b00 50%) 1;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.loupe {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  padding: 0;
+}
