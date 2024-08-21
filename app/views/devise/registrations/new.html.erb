@@ -1,22 +1,58 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { controller: "role" } }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs" data-controller="role">
     <div class="field">
       <%= f.label :role %><br />
-      <%= f.select :role, User::ROLES, { prompt: "Select your role" }, { data: { action: "change->role#toggleFields", role_target: "roleSelect" } } %>
+      <% User::ROLES.each do |role| %>
+        <button type="button" class="role-button" data-role="<%= role %>" data-action="click->role#selectRole"><%= role.capitalize %></button>
+      <% end %>
+      <%= f.hidden_field :role, data: { role_target: "roleSelect" } %>
     </div>
 
-    <div data-role-target="tenantFields" style="display: none;">
       <%= f.input :name,
                   required: true,
-                  input_html: { autocomplete: "name" }%>
+                  input_html: { autocomplete: "Nom d'utilisateur" }%>
       <%= f.input :city,
-                  label: "Ville",
+                  label: "ville",
                   required: true,
                   input_html: { autocomplete: "ville" }%>
+      <%= f.input :phone,
+                  label: "Téléphone",
+                  required: true,
+                  input_html: { autocomplete: "Téléphone" }%>
+      <%= f.input :socials,
+                  label: "Réseaux sociaux",
+                  required: true,
+                  input_html: { autocomplete: "Réseaux sociaux" }%>
+
+    <div data-role-target="tenantForm" style="display: none;">
+      <!-- Tenant-specific form fields -->
+    </div>
+
+    <div data-role-target="actForm" style="display: none;">
+      <div class="field">
+        <%= f.label :styles, "Styles" %><br />
+        <%= f.collection_check_boxes :styles, User::STYLES, :to_s, :to_s do |b| %>
+          <div class="checkbox">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
+      </div>
+    <%= f.input :description,
+                  label: "Description",
+                  required: true,
+                  input_html: { autocomplete: "Description" }%>
+      <%= f.input :members,
+                  label: "Members",
+                  required: true,
+                  input_html: { autocomplete: "Members" }%>
+    </div>
+
+    <div data-role-target="musicianForm" style="display: none;">
+      <!-- Musician-specific form fields -->
     </div>
 
     <%= f.input :email,
