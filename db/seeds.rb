@@ -14,7 +14,6 @@ User.destroy_all
 Venue.destroy_all
 Event.destroy_all
 
-
 puts "Creating fake tenants..."
 
 10.times do
@@ -23,9 +22,8 @@ puts "Creating fake tenants..."
     email: Faker::Internet.email,
     password: "azerty1234",
     name: Faker::Company.name,
-    )
+  )
 end
-
 
 puts "Creating fake acts..."
 
@@ -39,9 +37,8 @@ puts "Creating fake acts..."
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city,
     avatar: Faker::Avatar.image(slug: "my-own-slug"),
-    )
+  )
 end
-
 
 puts "Creating fake venues..."
 
@@ -60,18 +57,19 @@ tenants.each do |tenant|
     scene_size: scene.sample,
     paying: paying.sample,
     capacity: capacity.sample,
-    user_id: tenant.id,
-    )
+    user_id: tenant.id
+  )
 end
 
-
 puts "Creating fake events..."
-
-10.times do
+venues = Venue.all
+categories = ["Bar", "Restaurant", "Club", "Salle de concert", "Salle polyvalente", "Festival"]
+venues.each do |venue|
   Event.create!(
     name: Faker::Music.album,
     description: Faker::Lorem.paragraph,
     start_date: Faker::Date.between(from: Date.today, to: '2050-09-25'),
-    venue_id: Venue.all.sample.id,
-    )
+    venue_id: venue.id,
+    category: categories.sample
+  )
 end

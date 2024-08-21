@@ -1,1 +1,27 @@
-<h1>Venues#index</h1>
+<div class="d-flex justify-content-between">
+  <div class="row">
+    <div class="col-3 side-bar">
+      <%= render "users/user-card" %>
+
+      <div class="filters p-4">
+        <h2>Filtres</h2>
+        <form action="/venues" method="get">
+          <div class="form-group">
+            <label for="city">Ville</label>
+            <input type="text" name="city" id="city" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" class="form-control">
+          </div>
+
+      </div>
+    </div>
+    <div class="col-9 results">
+      <h1>Salles proches de chez vous.</h1>
+      <% @venues.each do |venue| %>
+      <%= render "venue", venue: venue %>
+      <% end %>
+      </div>
+      </div>
+</div>
