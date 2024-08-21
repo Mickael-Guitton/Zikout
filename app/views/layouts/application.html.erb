@@ -8,11 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag 'favicon_zikout.png', type: 'image/png' %>
   </head>
 
   <body>
    <%= render "shared/navbar" %>
-   <div class="container">
+   <div class="containt container mt-4">
     <%= render "shared/flashes" %>
     <%= yield %>
    </div>

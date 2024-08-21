@@ -1,40 +1,38 @@
 <div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon navbar-custom">
-  <div class="container">
+  <div class="containt container">
     <div class= "d-flex align-items-center">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "Zikout_logo.svg", alt: "Zikout", width: "12%" %>
     <% end %>
 
     <%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do |f| %>
-      <%= f.text_field :query, class: "form-control form-custom me-2", placeholder: "Search", value: params[:query] %>
-      <%= f.submit "Search", class: "btn btn-custom" %>
+      <div class="position-relative">
+        <%= f.text_field :query, class: "form-control form-custom me-2", placeholder: "Search", value: params[:query] %>
+        <%= f.submit nil, type: :image, src: image_path("loupe"),  class: "btn btn-custom loupe" %>
+      </div>
     <% end %>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+          <li class="nav-item">
+            <%= link_to events_path, class: "navbar-brand me-4" do %>
+              <%= image_tag "event.svg", alt: "Event" %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "#", class: "navbar-brand me-4" do %>
+              <%= image_tag "event.svg", alt: "Event" %>
+            <% end %>
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to "#", class: "navbar-brand me-5" do %>
+              <%= image_tag "event.svg", alt: "Event" %>
+            <% end %>
           </li>
-        <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-        <% end %>
       </ul>
     </div>
   </div>
