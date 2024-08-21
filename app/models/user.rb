@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :venues
 
   ROLES = ["tenant", "act"]
+  STYLES = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
   validates :role, inclusion: { in: ROLES }
   validates :name, presence: true
   validates :city, presence: true
