@@ -3,10 +3,24 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs" data-controller="role">
+    <div class="field">
+      <%= f.label :role %><br />
+      <%= f.select :role, User::ROLES, { prompt: "Select your role" }, { data: { action: "change->role#toggleFields", role_target: "roleSelect" } } %>
+    </div>
+
+    <div data-role-target="tenantFields" style="display: none;">
+      <%= f.input :name,
+                  required: true,
+                  input_html: { autocomplete: "name" }%>
+      <%= f.input :city,
+                  label: "Ville",
+                  required: true,
+                  input_html: { autocomplete: "ville" }%>
+    </div>
+
     <%= f.input :email,
                 required: true,
-                autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
