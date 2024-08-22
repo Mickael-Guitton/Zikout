@@ -58,7 +58,7 @@ tenants.each do |tenant|
     name: Faker::Company.name,
     street: Faker::Address.street_address,
     city: Faker::Address.city,
-    zip_code: Faker::Address.zip_code,
+    zipcode: Faker::Address.zip_code,
     country: Faker::Address.country,
     description: Faker::Lorem.paragraph,
     lodging: "yes" || "no",
