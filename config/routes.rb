@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :venues, only: %i[index]
   resources :events, only: %i[index]
   get "profile", to: "users#profile"
+  get "index", to: "users#index"
 end

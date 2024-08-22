@@ -8,4 +8,8 @@ class UsersController < ApplicationController
       @my_events = current_user.events
     end
   end
+
+  def index
+    @users = User.all
+  end
 end
