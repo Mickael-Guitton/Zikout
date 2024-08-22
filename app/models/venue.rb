@@ -3,10 +3,17 @@ class Venue < ApplicationRecord
   has_many :events
 
   validates :name, presence: true
-  validates :address, presence: true
+  validates :street, presence: true
+  validates :city, presence: true
+  validates :zipcode, presence: true
+  validates :country, presence: true
   validates :description, presence: true
   validates :capacity, presence: true
   validates :scene_size, presence: true
   validates :lodging, presence: true
   validates :paying, presence: true
+
+  def full_address
+    "#{street}, #{city}, #{zipcode} #{country}"
+  end
 end
