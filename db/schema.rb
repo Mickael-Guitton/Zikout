@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_21_132903) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_22_090101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_132903) do
   create_table "teams", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_teams_on_event_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_132903) do
     t.string "avatar"
     t.string "banner"
     t.string "city"
-    t.string "style"
+    t.jsonb "styles", default: []
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -69,5 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_132903) do
   end
 
   add_foreign_key "events", "venues"
+  add_foreign_key "teams", "events"
+  add_foreign_key "teams", "users"
   add_foreign_key "venues", "users"
 end
