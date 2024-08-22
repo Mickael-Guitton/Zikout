@@ -1,0 +1,25 @@
+<div class="d-flex">
+  <div class="col-3 border-custom py-3 px-3">
+   <h2><%= @venue.name %></h2>
+   <div class="d-flex">
+     <p><%= @venue.address %></p>
+     <p>le <%= @event.start_date %></p>
+   </div>
+   <p>Capacité: <%= @venue.capacity %></p>
+   <p>Taille de scène: <%= @venue.scene_size %></p>
+   <p>Loge: <%= @venue.lodging %></p>
+   <p>Rémunération: <%= @venue.paying %></p>
+   <p><%= @venue.description %></p>
+      <ul class="d-flex">
+        <li>
+          <%= link_to "#", class: "navbar-brand me-4" do %>
+            <%= image_tag "reseau.svg", alt: "Réseau"%>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "navbar-brand me-4" do %>
+            <%= image_tag "reseau.svg", alt: "Réseau"%>
+          <% end %>
+        </li>
+      </ul>
+  </div>

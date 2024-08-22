@@ -1,0 +1,20 @@
+<div class="mb-4">
+  <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="event-show_img" >
+</div>
+
+<%= render "info_venue_show" %>
+
+  <div class="col-9 ps-5">
+
+    <h1><%= @event.name %></h1>
+    <h3><%=  %></h3>
+    <p><%= @event.description %></p>
+
+    <div>
+      <button>Postuler</button>
+    </div>
+
+    <div class="border d-flex py-3 px-3">
+      <%= render "users/my-user-card" %>
+    </div>
+  </div>

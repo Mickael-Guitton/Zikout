@@ -24,4 +24,13 @@
 .event-card_info {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  }
+
+.event-show_img {
+  width: 1280px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
 }

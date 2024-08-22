@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   resources :venues, only: %i[index]
-  resources :events, only: %i[index]
+  resources :events, only: %i[index show]
   get "profile", to: "users#profile"
   get "index", to: "users#index"
 end
