@@ -2,7 +2,7 @@
   <div class="containt container">
     <div class= "d-flex align-items-center">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Zikout_logo.svg", alt: "Zikout", width: "12%" %>
+      <%= image_tag "Zikout_logo.svg", alt: "Zikout"%>
     <% end %>
 
     <%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do |f| %>
@@ -17,17 +17,17 @@
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <%= link_to events_path, class: "navbar-brand me-4" do %>
-              <%= image_tag "event.svg", alt: "Event" %>
+              <%= image_tag "event.svg", alt: "Event"%>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to "#", class: "navbar-brand me-4" do %>
-              <%= image_tag "event.svg", alt: "Event" %>
+              <%= image_tag "reseau.svg", alt: "Réseau"%>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to "#", class: "navbar-brand me-5" do %>
-              <%= image_tag "event.svg", alt: "Event" %>
+              <%= image_tag "messagerie.svg", alt: "Messagerie"%>
             <% end %>
           </li>
           <li class="nav-item">
