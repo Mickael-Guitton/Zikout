@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_101034) do
     t.integer "number_of_acts"
     t.bigint "venue_id"
     t.string "status"
+    t.string "category"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
