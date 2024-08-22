@@ -1,0 +1,43 @@
+<!-- app/views/venues/_new_venue_form.html.erb -->
+<div data-controller="popup" data-action="click@window->popup#closePopup">
+  <div id="new-venue-popup" data-popup-target="popup" style="display: none;">
+    <div class="popup-content">
+      <span class="close-button" data-action="popup#hidePopup">&times;</span>
+      <%= simple_form_for @venue do |form| %>
+        <div class="field">
+          <%= form.input :name %>
+        </div>
+        <div class="field">
+          <%= form.input :category %>
+        </div>
+        <div class="field">
+          <%= form.input :street %>
+        </div>
+        <div class="field">
+          <%= form.input :city %>
+        </div>
+        <div class="field">
+          <%= form.input :zipcode %>
+        </div>
+        <div class="field">
+          <%= form.input :country %>
+        </div>
+        <div class="field">
+          <%= form.input :lodging %>
+        </div>
+        <div class="field">
+          <%= form.input :capacity %>
+        </div>
+        <div class="field">
+          <%= form.input :scene_size %>
+        </div>
+        <div class="field">
+          <%= form.input :description, as: :text %>
+        </div>
+        <div class="actions">
+          <%= form.button :submit, "Créer le lieu" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
