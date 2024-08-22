@@ -5,20 +5,23 @@
   border: 1px solid #e1e1e1;
   border-radius: 5px;
   margin-bottom: 10px;
-  height: 100px;
+  height: 250px;
   width: 100%;
   margin: 10px auto
 }
 
 .event-card_img {
-  height: 200px;
+  height: 70%;
+  width: 100%;
   object-fit: cover;
 }
 
-.event-card_details {
+.event-card_body {
   padding: 16px;
+  position: relative;
+}
+
+.event-card_info {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  }
+}
