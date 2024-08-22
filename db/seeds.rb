@@ -22,10 +22,13 @@ puts "Creating fake tenants..."
     email: Faker::Internet.email,
     password: "azerty1234",
     name: Faker::Company.name,
+    city: Faker::Address.city,
   )
 end
 
 puts "Creating fake acts..."
+
+styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 
 10.times do
   User.create!(
@@ -33,7 +36,9 @@ puts "Creating fake acts..."
     email: Faker::Internet.email,
     password: "azerty1234",
     name: Faker::Company.name,
-    style: Faker::Music.genre,
+    styles: rand(1..3).times do
+              styles.sample
+            end,
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city,
     avatar: Faker::Avatar.image(slug: "my-own-slug"),
@@ -43,7 +48,7 @@ end
 puts "Creating fake venues..."
 
 tenants = User.where(role: "tenant")
-scene = ["small", "medium", "large", "extra-large"]
+scene = ["very-small", "small", "medium", "large", "extra-large"]
 capacity = (30..500).to_a
 paying = ["yes", "no"]
 
@@ -51,7 +56,10 @@ paying = ["yes", "no"]
 tenants.each do |tenant|
   Venue.create!(
     name: Faker::Company.name,
-    address: Faker::Address.full_address,
+    street: Faker::Address.street_address,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.zip_code,
+    country: Faker::Address.country,
     description: Faker::Lorem.paragraph,
     lodging: "yes" || "no",
     scene_size: scene.sample,
