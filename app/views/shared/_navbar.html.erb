@@ -8,7 +8,7 @@
     <%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do |f| %>
       <div class="position-relative">
         <%= f.text_field :query, class: "form-control form-custom me-2", placeholder: "Search", value: params[:query] %>
-        <%= f.submit nil, type: :image, src: image_path("loupe"),  class: "btn btn-custom loupe" %>
+        <%= f.submit nil, type: :image, src: image_path("loupe.svg"),  class: "btn btn-custom loupe" %>
       </div>
     <% end %>
     </div>
