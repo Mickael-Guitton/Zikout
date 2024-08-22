@@ -7,5 +7,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @venue = @event.venue
+    @teams = Team.where(event: @event.id)
   end
 end

@@ -7,14 +7,20 @@
   <div class="col-9 ps-5">
 
     <h1><%= @event.name %></h1>
-    <h3><%=  %></h3>
+    <h4><%= @event.category %></h3>
     <p><%= @event.description %></p>
 
+    <%# <% if current_user.role == "act" %>
     <div>
-      <button>Postuler</button>
+      <%= button_to "Postuler", event_teams_path(@event), class:"button-custom", data: {turbo_method: :post} %>
     </div>
 
-    <div class="border d-flex py-3 px-3">
-      <%= render "users/my-user-card" %>
+    <%# <% elsif current_user == @event.venue.user %>
+    <div class="border d-flex p-3">
+      <% @teams.each do |team| %>
+      <%= render "users/user-card", team: team %>
+      <% end %>
     </div>
+    <%# <% end %>
+
   </div>
