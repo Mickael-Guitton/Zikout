@@ -17,6 +17,9 @@
       <li>Instagram : </li>
       <li>Twitter : </li>
     </ul>
+    <% if user.role == "tenant" %>
+      <button id="create-venue-button">Créer un lieu</button>
+    <% end %>
   </div>
   <div class="user-content">
     <%= @user.description %>
