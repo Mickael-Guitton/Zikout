@@ -1,23 +1,23 @@
-<div class="d-flex justify-content-between">
-  <div class="row">
-    <div class="col-3 side-bar">
-      <%= render "users/my-user-card" %>
+<div class="d-flex">
+  <div class="col-3 side-bar">
+    <%= render "users/my-user-card" %>
 
-      <div class="filters p-4">
-        <h2>Filtres</h2>
-        <form action="/users" method="get">
-        <div class="form-group">
-          <label for="city">Ville</label>
-          <input type="text" name="city" id="city" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="style">Style</label>
-          <input type="text" name="style" id="style" class="form-control">
-        </div>
+    <div class="filters p-4">
+      <h2>Filtres</h2>
+      <form action="/users" method="get">
+      <div class="form-group">
+        <label for="city">Ville</label>
+        <input type="text" name="city" id="city" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="style">Style</label>
+        <input type="text" name="style" id="style" class="form-control">
       </div>
     </div>
-    <div class="col-9 results">
-      <h1>Les utilisateurs proches de chez vous.</h1>
+  </div>
+  <div class="col-9 results">
+    <h1>Les utilisateurs proches de chez vous.</h1>
+    <div class="d-flex flex-wrap">
       <% @users.each do |user| %>
         <%= render "user-card", user: user %>
       <% end %>
