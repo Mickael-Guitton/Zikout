@@ -1,8 +1,10 @@
 <div class="event-card">
-  <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="event-card_img" >
-  <div class="card-body">
-    <%= event.name %>
-    <%= event.start_date %>
-    <%= event.description %>
-  </div>
+    <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="event-card_img" >
+    <div class="event-card_body">
+      <h5><%= event.name %></h5>
+      <div class="event-card_info d-inline-flex">
+        <%= event.start_date %>
+        <p><%= event.venue.name %>, <%= event.city %></p>
+      </div>
+    </div>
 </div>
