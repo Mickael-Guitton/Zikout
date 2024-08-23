@@ -6,14 +6,15 @@ export default class extends Controller {
 
   connect() {
     this.hidePopup();
+    console.log("hello")
   }
 
   showPopup() {
-    this.popupTarget.style.display = "block";
+    this.popupTarget.classList.remove("d-none")
   }
 
   hidePopup() {
-    this.popupTarget.style.display = "none";
+    this.popupTarget.classList.add("d-none")
   }
 
   closePopup(event) {

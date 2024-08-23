@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :venues, only: %i[index]
+  resources :venues, only: %i[index show]
+
 
   resources :events, only: %i[index show] do
     resources :teams, only: %i[create]

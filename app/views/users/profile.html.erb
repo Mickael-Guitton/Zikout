@@ -17,10 +17,11 @@
       <li>Instagram : </li>
       <li>Twitter : </li>
     </ul>
-
     <% if @user.role == "tenant" %>
-      <button id="create-venue-button" data-action="popup#showPopup">Créer un lieu</button>
-      <%= render 'venues/new-venue-form' %>
+      <div data-controller="venue-form">
+        <button id="create-venue-button" data-action="venue-form#showPopup">Créer un lieu</button>
+        <%= render 'venues/new-venue-form', venue: @venue %>
+      </div>
     <% end %>
   </div>
   <div class="user-content">

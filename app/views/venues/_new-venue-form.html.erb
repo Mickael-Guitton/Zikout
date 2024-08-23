@@ -1,41 +1,41 @@
 <!-- app/views/venues/_new_venue_form.html.erb -->
-<div data-controller="popup" data-action="click@window->popup#closePopup">
-  <div id="new-venue-popup" data-popup-target="popup" style="display: none;">
+<div data-action="click@window->popup#closePopup">
+  <div id="new-venue-popup" data-venue-form-target="popup" class="venue-form-popup">
     <div class="popup-content">
       <span class="close-button" data-action="popup#hidePopup">&times;</span>
-      <%= simple_form_for @venue do |form| %>
+      <%= simple_form_for @venue do |f| %>
         <div class="field">
-          <%= form.input :name %>
+          <%= f.text_field :name %>
         </div>
         <div class="field">
-          <%= form.input :category %>
+          <%= f.text_field :category %>
         </div>
         <div class="field">
-          <%= form.input :street %>
+          <%= f.text_field :street %>
         </div>
         <div class="field">
-          <%= form.input :city %>
+          <%= f.text_field :city %>
         </div>
         <div class="field">
-          <%= form.input :zipcode %>
+          <%= f.text_field :zipcode %>
         </div>
         <div class="field">
-          <%= form.input :country %>
+          <%= f.text_field :country %>
         </div>
         <div class="field">
-          <%= form.input :lodging %>
+          <%= f.text_field :lodging %>
         </div>
         <div class="field">
-          <%= form.input :capacity %>
+          <%= f.text_field :capacity %>
         </div>
         <div class="field">
-          <%= form.input :scene_size %>
+          <%= f.text_field :scene_size %>
         </div>
         <div class="field">
-          <%= form.input :description, as: :text %>
+          <%= f.text_field :description, as: :text %>
         </div>
         <div class="actions">
-          <%= form.button :submit, "Créer le lieu" %>
+          <%= f.button :submit, "Créer le lieu" %>
         </div>
       <% end %>
     </div>

@@ -1,0 +1,30 @@
+<div class="mb-4">
+  <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="venue-show_img" >
+</div>
+
+<%= render "info_venue_show" %>
+
+<div class="col-9 ps-5">
+
+  <h1><%= @venue.name %></h1>
+  <h4><%= @venue.category %></h3>
+  <p><%= @venue.description %></p>
+
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <button id="create-event-button" >Créer un événement</button>
+      <%= render 'events/new-event-form', event: @event %>
+    </div>
+  <div>
+  </div>
+
+  <%# <% elsif current_user == @event.venue.user %>
+  <div class="border d-flex flex-wrap justify-content-between p-3">
+    <% @teams.each do |team| %>
+    <%= link_to profile_path do %>
+      <%= render "users/team-user-card", team: team %>
+      <% end %>
+    <% end %>
+  </div>
+  <%# <% end %>
+
+  </div>
