@@ -9,28 +9,33 @@
       <h1><%= @event.name %></h1>
       <%# <% if current_user.role == "act" %>
       <div>
-        <%= button_to "Postuler", event_teams_path(@event), class:"button-custom", data: {turbo_method: :post} %>
+        <%= button_to "Postuler", event_participants_path(@event), class:"button-custom", data: {turbo_method: :post} %>
       </div>
       <%# <% end %>
     </div>
     <h4><%= @event.category %></h3>
     <p><%= @event.description %></p>
 
+    <%# <% if current_user.role == "act" %>
+    <div>
+      <%= button_to "Postuler", event_participants_path(@event), class:"button-custom", data: {turbo_method: :post} %>
+
 
     <%# <% if current_user == @event.venue.user %>
 
     <div class="border d-flex flex-wrap justify-content-between p-3">
-      <% @teams.each do |team| %>
+      <% @participants.each do |participant| %>
         <%= link_to profile_path do %>
-          <%= render "users/team-user-card", team: team %>
+          <%= render "users/participant-user-card", participant: participant %>
         <% end %>
       <% end %>
     </div>
 
     <div class="border d-flex flex-wrap justify-content-between p-3">
-      <% @teams.each do |team| %>
+
+      <% @participants.each do |participant| %>
         <%= link_to profile_path do %>
-          <%= render "users/team-user-card", team: team %>
+          <%= render "users/participant-user-card", participant: participant %>
         <% end %>
       <% end %>
     </div>
