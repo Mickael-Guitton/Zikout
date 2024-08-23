@@ -1,0 +1,30 @@
+.venue-form-popup {
+  background-color: white;;
+  border: 1px solid orange;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 500px;
+  width: 40%;
+  z-index: 1000;
+
+  .venue-form-popup {
+    &__header {
+      background-color: $color-white;
+      border-bottom: 1px solid $color-light-gray;
+      padding: 20px;
+      text-align: center;
+    }
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__footer {
+      background-color: $color-white;
+      border-top: 1px solid $color-light-gray;
+      padding: 20px;
+      text-align: center;
+    }
+  }
+}
