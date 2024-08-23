@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get "profile", to: "users#profile"
+  get "users/:id", to: "users#show"
   get "index", to: "users#index"
 
 end

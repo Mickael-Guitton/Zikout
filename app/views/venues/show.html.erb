@@ -10,21 +10,14 @@
   <h4><%= @venue.category %></h3>
   <p><%= @venue.description %></p>
 
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-  <button id="create-event-button" >Créer un événement</button>
-      <%= render 'events/new-event-form', event: @event %>
-    </div>
-  <div>
-  </div>
-
-  <%# <% elsif current_user == @event.venue.user %>
-  <div class="border d-flex flex-wrap justify-content-between p-3">
-    <% @teams.each do |team| %>
-    <%= link_to profile_path do %>
-      <%= render "users/team-user-card", team: team %>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <button id="create-event-button" >Créer un événement</button>
+        <%= render 'events/new-event-form', event: @event %>
+      </div>
+    <div>
+      <h2> Evénements à venir </h2>
+      <% @events.each do |event| %>
+        <%= render "events/event", event: event %>
       <% end %>
-    <% end %>
-  </div>
-  <%# <% end %>
-
-  </div>
+    </div>
+</div>
