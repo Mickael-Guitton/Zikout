@@ -7,18 +7,18 @@
   <h4><%= participant.user.name %></h4>
   <p><%= participant.user.styles %></p>
 
-  <% if team.status == "pending"%>
+  <% if participant.status == "pending"%>
     <div>
-      <%= link_to "Accepter", accept_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+      <%= link_to "Accepter", accept_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
     </div>
-  <% elsif team.status == "accepted" %>
+  <% elsif participant.status == "accepted" %>
     <div>
-      <%= link_to "Annuler", set_to_pending_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+      <%= link_to "Annuler", set_to_pending_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
   </div>
   <% end %>
 
   <div>
-      <%= link_to "Décliner", decline_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+      <%= link_to "Décliner", decline_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
   </div>
 
 </div>
