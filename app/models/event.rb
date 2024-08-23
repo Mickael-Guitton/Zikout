@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
-  has_many :teams
-  has_many :users, through: :teams
+  has_many :participants
+  has_many :users, through: :participants
   belongs_to :venue
 
   def fr_start_date

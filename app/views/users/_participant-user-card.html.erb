@@ -1,0 +1,27 @@
+
+  <div class="user-card">
+    <%= link_to profile_path do %>
+    <div class="banner-user-card">
+
+      <%= image_tag "https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/66669599_2382152312042614_4688274961876385792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=53a332&_nc_ohc=unPweC4ZqukQ7kNvgG32DxP&_nc_ht=scontent-cdg4-1.xx&oh=00_AYD_SjrN6WILFQdI0KO-Jj6GETl_zR-ZCbS9ZtS5pjQs0A&oe=66ED44DC", class: "user-card-avatar" %>
+     <% end %>
+     </div>
+
+      <h4><%= participant.user.name %></h4>
+      <p><%= participant.user.styles %></p>
+
+  <% if participant.status == "pending"%>
+    <div>
+      <%= link_to "Accepter", accept_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
+    </div>
+  <% elsif participant.status == "accepted" %>
+    <div>
+      <%= link_to "Annuler", set_to_pending_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
+  </div>
+  <% end %>
+
+  <div>
+      <%= link_to "Décliner", decline_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
+  </div>
+
+</div>

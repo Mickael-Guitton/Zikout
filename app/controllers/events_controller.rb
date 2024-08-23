@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+
   before_action :authenticate_user!
+
   def index
     @events = Event.all
   end
@@ -7,7 +9,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @venue = @event.venue
-    @participants = participant.where(event: @event.id)
+    @participants = Participant.where(event: @event.id)
   end
 
   def create
@@ -25,5 +27,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :date, :description)
   end
-
 end

@@ -9,3 +9,10 @@
     opacity: 0.8;
   }
 }
+
+.selected-role {
+  background-color: #5be670;
+  &:hover {
+    background-color: #5be670;
+  }
+}

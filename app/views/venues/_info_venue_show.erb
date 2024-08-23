@@ -1,8 +1,10 @@
 <div class="d-flex">
-  <div class="col-3 border-custom py-3 px-3">
+  <div class="col-3 border-custom p-3">
    <h2><%= @venue.name %></h2>
    <p><%= @venue.city %></p>
-   <p>le <%= @event.start_date %></p>
+   <% if @event %>
+    <p>le <%= @event.fr_start_date %></p>
+  <% end %>
    <p>Capacité: <%= @venue.capacity %></p>
    <p>Taille de scène: <%= @venue.scene_size %></p>
    <p>Loge: <%= @venue.lodging %></p>
@@ -21,3 +23,4 @@
         </li>
       </ul>
   </div>
+</div>
