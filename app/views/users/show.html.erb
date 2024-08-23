@@ -1,0 +1,37 @@
+<div>
+  <img src="https://www.spinearth.tv/wp-content/uploads/2023/04/bandas.jpg" class="user-banner" alt="<%= @user.name %> banner">
+  <img src="https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/66669599_2382152312042614_4688274961876385792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=53a332&_nc_ohc=unPweC4ZqukQ7kNvgG32DxP&_nc_ht=scontent-cdg4-1.xx&oh=00_AYDGHTR06SWdYW-5J7H_gR4YpXob-dTWYasMCZ2NBvWzJQ&oe=66ED7D1C" class="user-avatar" alt="<%= @user.name %> avatar">
+</div>
+<div class="d-flex">
+  <div class="user-info">
+    <h2><%= @user.name %></h2>
+    <h3><%= @user.city %></h3>
+    <h4> @user.styles</h4>
+    <ul>
+      <li>member</li>
+      <li>member</li>
+      <li>member</li>
+    </ul>
+    <ul>
+      <li>Facebook : </li>
+      <li>Instagram : </li>
+      <li>Twitter : </li>
+    </ul>
+    <% if @user.role == "tenant" %>
+      <div data-controller="venue-form">
+        <button id="create-venue-button" data-action="venue-form#showPopup">Créer un lieu</button>
+        <%= render 'venues/new-venue-form', venue: @venue %>
+      </div>
+    <% end %>
+  </div>
+  <div class="user-content">
+    <%= @user.description %>
+    <p>YOUTUBE</p>
+  </div>
+  <div class="border">
+    <h3>Evénements à venir</h3>
+    <% @my_events.each do |event| %>
+      <%= render "events/event", event: event %>
+    <% end %>
+  </div>
+</div>

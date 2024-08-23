@@ -1,10 +1,12 @@
-<div class="venue-card">
-  <img src="https://s1.dmcdn.net/v/Qt3Dy1TPKjzOA6xuH/x720" class="venue-card_img" >
-  <div class="venue-card_body">
-    <%= venue.name %>
-    <div class="venue-card_info">
-    <%= venue.full_address %>
-    <%= venue.category %>
+<%= link_to venue_path(venue), :style=>'text-decoration: none; color: inherit' do %>
+  <div class="venue-card">
+    <img src="https://s1.dmcdn.net/v/Qt3Dy1TPKjzOA6xuH/x720" class="venue-card_img" >
+    <div class="venue-card_body">
+      <%= venue.name %>
+      <div class="venue-card_info">
+      <%= venue.full_address %>
+      <%= venue.category %>
+    </div>
   </div>
-</div>
-</div>
+  </div>
+<% end %>
