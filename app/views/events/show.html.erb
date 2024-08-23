@@ -2,7 +2,7 @@
   <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="event-show_img" >
 </div>
 
-<%= render "venues/info_venue_show" %>
+<%= render "venues/info_venue_show"%>
 
   <div class="col-9 ps-5">
     <div class="d-flex justify-content-between align-items-center">
@@ -32,18 +32,18 @@
     </div>
 
     <div class="border d-flex flex-wrap justify-content-between p-3">
-
       <% @participants.each do |participant| %>
-        <%= link_to profile_path do %>
-          <%= render "users/participant-user-card", participant: participant %>
-        <% end %>
+
+        <%= render "users/participant-user-card", participant: participant %>
+
+
       <% end %>
     </div>
 
     <div class="border d-flex flex-wrap justify-content-between p-3">
-      <% @teams.each do |team| %>
+      <% @participants.each do |participant| %>
         <%= link_to profile_path do %>
-          <%= render "users/team-user-card", team: team %>
+          <%= render "users/participant-user-card", participant: participant %>
         <% end %>
       <% end %>
     </div>
