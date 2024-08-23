@@ -1,3 +1,4 @@
+
 <%= link_to profile_path do %>
   <div class="user-card">
     <div class="banner-user-card">
@@ -10,3 +11,20 @@
     </button>
   </div>
 <% end %>
+
+  <% if team.status == "pending"%>
+    <div>
+      <%= link_to "Accepter", accept_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+    </div>
+  <% elsif team.status == "accepted" %>
+    <div>
+      <%= link_to "Annuler", set_to_pending_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+  </div>
+  <% end %>
+
+  <div>
+      <%= link_to "Décliner", decline_path(team), class:"button-custom",  data: {turbo_method: :patch} %>
+  </div>
+
+</div>
+

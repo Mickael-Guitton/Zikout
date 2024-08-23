@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :venues, only: %i[index show]
 
+
   resources :events, only: %i[index show] do
     resources :teams, only: %i[create]
   end
@@ -19,4 +20,7 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show"
   get "index", to: "users#index"
 
+  patch "teams/:id/accept", to: "teams#accept", as: "accept"
+  patch "teams/:id/pending", to: "teams#set_to_pending", as: "set_to_pending"
+  patch "teams/:id/decline", to: "teams#decline", as: "decline"
 end
