@@ -37,7 +37,7 @@
             <% if user_signed_in? %>
               <img class="nav-link dropdown-toggle avatar-large border" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src="<%= current_user.avatar %>" />
             <% else %>
-              <i class="fa-regular fa-user nav-link text-warning fs-3 px-2 border border-warning rounded-circle" data-bs-toggle="dropdown" role="button"></i>
+              <i class="fa-regular fa-user nav-link text-warning fs-5 px-2 border border-warning rounded-circle" data-bs-toggle="dropdown" role="button"></i>
             <% end %>
             <ul class="dropdown-menu">
               <% if user_signed_in? %>
