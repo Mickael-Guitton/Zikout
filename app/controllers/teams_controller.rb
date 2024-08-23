@@ -1,9 +1,9 @@
-class TeamsController < ApplicationController
+class ParticipantsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
-    @team = Team.new(user: current_user, event: @event)
+    @participant = Participant.new(user: current_user, event: @event)
 
-    if @team.save
+    if @participant.save
       redirect_to event_path(@event), notice: "Vous avez bien postulé à cet event !"
     else
       redirect_to event_path(@event), notice: "Il y a eu un problème. Réessayez plus tard."
