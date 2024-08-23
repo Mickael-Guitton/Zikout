@@ -12,4 +12,9 @@ class User < ApplicationRecord
   validates :role, inclusion: { in: ROLES }
   validates :name, presence: true
   validates :city, presence: true
+
+  if :role == "act"
+    validates :description, presence: true
+    validates :members, presence: true
+  end
 end

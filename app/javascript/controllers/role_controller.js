@@ -2,12 +2,38 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="role"
 export default class extends Controller {
-  static targets = ["roleSelect", "tenantForm", "actForm", "musicianForm"];
+  static targets = ["roleSelect", "roleButton", "tenantForm", "actForm", "musicianForm"];
+
+  connect() {
+    this.selectedRole = null;
+  }
 
   selectRole(event) {
     const role = event.currentTarget.dataset.role;
+
     this.roleSelectTarget.value = role;
-    this.toggleFields();
+    this.toggleFields()
+    this.highlightButton(event);
+
+  }
+  highlightButton(event) {
+    console.log(event);
+    const role = event.currentTarget.dataset.role;
+
+    if (!role) {
+      console.error("Role is undefined");
+    }
+
+    if (this.selectedRole) {
+      this.selectedRole.classList.remove("selected-role");
+    }
+
+    event.currentTarget.classList.add("selected-role");
+    this.selectedRole = event.currentTarget;
+
+    this.roleButtonTarget.value = role;
+
+    this.toggleFields(role);
   }
 
   toggleFields() {
@@ -27,4 +53,6 @@ export default class extends Controller {
       this.musicianFormTarget.style.display = "block";
     }
   }
+
+
 }
