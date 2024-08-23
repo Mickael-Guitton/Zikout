@@ -61,6 +61,7 @@ tenants.each do |tenant|
     zipcode: Faker::Address.zip_code,
     country: Faker::Address.country,
     description: Faker::Lorem.paragraph,
+    category: Venue::CATEGORIES.sample,
     lodging: "yes" || "no",
     scene_size: scene.sample,
     paying: paying.sample,
