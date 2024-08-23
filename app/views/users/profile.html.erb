@@ -17,7 +17,8 @@
       <li>Instagram : </li>
       <li>Twitter : </li>
     </ul>
-    <% if current_user.role == "tenant" %>
+
+    <% if @user.role == "tenant" %>
       <button id="create-venue-button" data-action="popup#showPopup">Créer un lieu</button>
       <%= render 'venues/new-venue-form' %>
     <% end %>
