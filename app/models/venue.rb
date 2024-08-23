@@ -8,6 +8,8 @@ class Venue < ApplicationRecord
   validates :zipcode, presence: true
   validates :country, presence: true
   validates :description, presence: true
+  CATEGORIES = ["Bar", "Club", "Restaurant", "Salle de Spectacle", "Salle Polyvalente", "Théâtre", "Festival", "Other"]
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :capacity, presence: true
   validates :scene_size, presence: true
   validates :lodging, presence: true
