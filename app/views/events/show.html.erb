@@ -16,9 +16,11 @@
     </div>
 
     <%# <% elsif current_user == @event.venue.user %>
-    <div class="border d-flex p-3">
+    <div class="border d-flex flex-wrap justify-content-between p-3">
       <% @teams.each do |team| %>
-      <%= render "users/user-card", team: team %>
+      <%= link_to profile_path do %>
+        <%= render "users/team-user-card", team: team %>
+        <% end %>
       <% end %>
     </div>
     <%# <% end %>
