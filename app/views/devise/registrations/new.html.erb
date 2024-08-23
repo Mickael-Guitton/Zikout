@@ -6,10 +6,9 @@
     <div class="field">
       <%= f.label :role %><br />
       <% User::ROLES.each do |role| %>
-        <button type="button" class="role-button" data-role="<%= role %>" data-action="click->role#selectRole"><%= role.capitalize %></button>
+        <button type="button" class="button-custom" data-role="<%= role %>"  data-role-target="roleButton" data-action="click->role#selectRole"><%= role.capitalize %></button>
       <% end %>
       <%= f.hidden_field :role, data: { role_target: "roleSelect" } %>
-    </div>
 
       <%= f.input :name,
                   required: true,
@@ -20,53 +19,54 @@
                   input_html: { autocomplete: "ville" }%>
       <%= f.input :phone,
                   label: "Téléphone",
-                  required: true,
                   input_html: { autocomplete: "Téléphone" }%>
       <%= f.input :socials,
                   label: "Réseaux sociaux",
-                  required: true,
                   input_html: { autocomplete: "Réseaux sociaux" }%>
 
-    <div data-role-target="tenantForm" style="display: none;">
-      <!-- Tenant-specific form fields -->
-    </div>
-
-    <div data-role-target="actForm" style="display: none;">
-      <div class="field">
-        <%= f.label :styles, "Styles" %><br />
-        <%= f.collection_check_boxes :styles, User::STYLES, :to_s, :to_s do |b| %>
-          <div class="checkbox">
-            <%= b.check_box %>
-            <%= b.label %>
-          </div>
-        <% end %>
+<!-- ========================= HIDDEN TENANT FORM ========================== -->
+      <div data-role-target="tenantForm" style="display: none;">
+        <!-- Tenant-specific form fields -->
       </div>
-    <%= f.input :description,
-                  label: "Description",
-                  required: true,
-                  input_html: { autocomplete: "Description" }%>
-      <%= f.input :members,
-                  label: "Members",
-                  required: true,
-                  input_html: { autocomplete: "Members" }%>
-    </div>
 
-    <div data-role-target="musicianForm" style="display: none;">
-      <!-- Musician-specific form fields -->
-    </div>
 
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<!-- ======================== HIDDEN MUSICIAN FORM ========================= -->
+      <div data-role-target="musicianForm" style="display: none;">
+        <!-- Musician-specific form fields -->
+      </div>
+
+<!-- =========================== HIDDEN ACT FORM =========================== -->
+      <div data-role-target="actForm" style="display: none;">
+        <div class="field">
+          <%= f.label :styles, "Styles" %><br />
+          <%= f.collection_check_boxes :styles, User::STYLES, :to_s, :to_s do |b| %>
+            <div class="checkbox">
+              <%= b.check_box %>
+              <%= b.label %>
+            </div>
+          <% end %>
+        </div>
+        <%= f.input :description,
+                    label: "Description",
+                    input_html: { autocomplete: "Description" }%>
+        <%= f.input :members,
+                    label: "Members",
+                    input_html: { autocomplete: "Members" }%>
+      </div>
+
+
+      <%= f.input :email,
+                  required: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
