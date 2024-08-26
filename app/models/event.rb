@@ -3,6 +3,9 @@ class Event < ApplicationRecord
   has_many :users, through: :participants
   belongs_to :venue
 
+  validates :start_date, presence: true
+
+
   def fr_start_date
     date_str = start_date.to_s
     date_str = date_str.gsub(" UTC", "")
