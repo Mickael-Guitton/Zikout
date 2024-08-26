@@ -3,13 +3,13 @@
   <img src="https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/66669599_2382152312042614_4688274961876385792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=53a332&_nc_ohc=unPweC4ZqukQ7kNvgG32DxP&_nc_ht=scontent-cdg4-1.xx&oh=00_AYD_SjrN6WILFQdI0KO-Jj6GETl_zR-ZCbS9ZtS5pjQs0A&oe=66ED44DC" class="banner-avatar" alt="<%= @user.name %> banner">
 </div>
 
-<div class="d-flex">
+<div class="container">
   <div class="row">
     <div class="user-info col-3 border-custom">
-    <%= render "user-info" %>
+      <%= render "user-info" %>
     </div>
     <div class="user-content col-9">
-      <%= @user.description %>
+      <%= render "user-content" %>
     </div>
     <div class="border">
       <h3>Evénements à venir</h3>

@@ -1,7 +1,7 @@
 <% if @user.role == "act" %>
   <div id="events">
     <h3>Evénements à venir</h3>
-    <% @my_events.each do |event| %>
+    <% @events.each do |event| %>
       <%= render "events/event", event: event %>
     <% end %>
   </div>
@@ -9,7 +9,7 @@
 <% elsif @user.role == "tenant" %>
   <div id="venues">
     <h3>Mes lieux</h3>
-    <% @my_venues.each do |venue| %>
+    <% @venues.each do |venue| %>
       <%= render "venues/venue", venue: venue %>
     <% end %>
   </div>

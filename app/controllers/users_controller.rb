@@ -3,10 +3,10 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.role == "tenant"
       @venue = Venue.new
-      @my_venues = Venue.where(user_id: current_user.id)
-      @my_events = Event.where(venue_id: @my_venues.ids)
+      @venues = Venue.where(user_id: current_user.id)
+      @events = Event.where(venue_id: @venues.ids)
     elsif @user.role == "act"
-      @my_events = current_user.events
+      @events = current_user.events
     end
   end
 
