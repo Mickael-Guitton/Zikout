@@ -2,7 +2,7 @@
 <div data-action="click@window->popup#closePopup">
   <div id="new-venue-popup" data-venue-form-target="popup" class="venue-form-popup">
     <div class="popup-content">
-      <span class="close-button" data-action="popup#hidePopup">&times;</span>
+      <span class="close-button" data-action="popup#hidePopup"></span>
       <%= simple_form_for @venue do |f| %>
         <div class="field">
           <%= f.text_field :name %>
