@@ -1,7 +1,16 @@
-<div>
-  <img src="https://www.spinearth.tv/wp-content/uploads/2023/04/bandas.jpg" class="banner" alt="<%= @user.name %> banner">
-  <img src="https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/66669599_2382152312042614_4688274961876385792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=53a332&_nc_ohc=unPweC4ZqukQ7kNvgG32DxP&_nc_ht=scontent-cdg4-1.xx&oh=00_AYDGHTR06SWdYW-5J7H_gR4YpXob-dTWYasMCZ2NBvWzJQ&oe=66ED7D1C" class="user-avatar" alt="Photo de profil de <%= @user.name %>" >
+<div class="banner mb-4">
+    <% if @user.banner.attached? %>
+      <%= cl_image_tag @user.banner.key, class:"banner-img" %>
+    <% else %>
+      <img src="../../assets/images/banner.jpeg" class="banner-img" alt="<%= @user.name %> banner">
+    <% end %>
+    <% if @user.banner.attached? %>
+      <%= cl_image_tag @user.avatar.key, class:"banner-avatar" %>
+    <% else %>
+      <img src="../../assets/images/Zikout_logo.svg" class="banner-avatar" alt="<%= @user.name %> banner">
+    <% end %>
 </div>
+
 <div class="d-flex">
   <div class="user-info">
     <h2><%= @user.name %></h2>
@@ -20,7 +29,7 @@
     <% if @user.role == "tenant" %>
       <div data-controller="venue-form">
         <button id="create-venue-button" data-action="venue-form#showPopup">Créer un lieu</button>
-        <%= render 'venues/new-venue-form', venue: @venue %>
+
       </div>
     <% end %>
   </div>
@@ -30,7 +39,7 @@
   </div>
   <div class="border">
     <h3>Evénements à venir</h3>
-    <% @my_events.each do |event| %>
+    <% @events.each do |event| %>
       <%= render "events/event", event: event %>
     <% end %>
   </div>
