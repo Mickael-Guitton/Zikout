@@ -1,5 +1,3 @@
-
-  <div class="user-info border-custom">
     <h2><%= @user.name %></h2>
     <h3><%= @user.city %></h3>
     <h4> @user.styles</h4>
@@ -13,11 +11,3 @@
       <li>Instagram : </li>
       <li>Twitter : </li>
     </ul>
-    <% if @user.role == "tenant" %>
-      <div data-controller="venue-form">
-        <button id="create-venue-button" data-action="venue-form#showPopup">Créer un lieu</button>
-        <%= render 'venues/new-venue-form', venue: @venue %>
-      </div>
-    <% end %>
-  </div>
-</div>
