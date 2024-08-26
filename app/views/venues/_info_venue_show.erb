@@ -1,26 +1,25 @@
-<div class="d-flex">
-  <div class="col-3 border-custom p-3">
-   <h2><%= @venue.name %></h2>
-   <p><%= @venue.city %></p>
-   <% if @event %>
+
+<div class="col-3 border-custom p-3">
+  <h2><%= @venue.name %></h2>
+  <p><%= @venue.city %></p>
+  <% if @event %>
     <p>le <%= @event.fr_start_date %></p>
   <% end %>
-   <p>Capacité: <%= @venue.capacity %></p>
-   <p>Taille de scène: <%= @venue.scene_size %></p>
-   <p>Loge: <%= @venue.lodging %></p>
-   <p>Rémunération: <%= @venue.paying %></p>
-   <p><%= @venue.description %></p>
-      <ul class="d-flex">
-        <li>
-          <%= link_to "#", class: "navbar-brand me-4" do %>
-            <%= image_tag "reseau.svg", alt: "Réseau"%>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#", class: "navbar-brand me-4" do %>
-            <%= image_tag "reseau.svg", alt: "Réseau"%>
-          <% end %>
-        </li>
-      </ul>
-  </div>
+  <p>Capacité: <%= @venue.capacity %></p>
+  <p>Taille de scène: <%= @venue.scene_size %></p>
+  <p>Loge: <%= @venue.lodging %></p>
+  <p>Rémunération: <%= @venue.paying %></p>
+  <p><%= @venue.description %></p>
+    <ul class="d-flex">
+      <li>
+        <%= link_to "#", class: "navbar-brand me-4" do %>
+          <%= image_tag "reseau.svg", alt: "Réseau"%>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "navbar-brand me-4" do %>
+          <%= image_tag "reseau.svg", alt: "Réseau"%>
+        <% end %>
+      </li>
+    </ul>
 </div>

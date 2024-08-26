@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :participants
-  has_many :users, through: :participants
+  has_many :users, through: :participants, dependent: :destroy
   belongs_to :venue
 
   def fr_start_date

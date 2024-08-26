@@ -13,14 +13,14 @@
     <div>
       <%= link_to "Accepter", accept_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
     </div>
-  <% elsif participant.status == "accepted" %>
+    <div>
+      <%= link_to "Décliner", decline_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
+    </div>
+  <% elsif participant.status == "accepted" || participant.status == "declined" %>
     <div>
       <%= link_to "Annuler", set_to_pending_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
   </div>
   <% end %>
 
-  <div>
-      <%= link_to "Décliner", decline_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
-  </div>
 
 </div>
