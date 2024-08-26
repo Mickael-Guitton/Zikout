@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-
+      redirect_to venue_path(@event.venue), notice: "Event not created"
     end
   end
 
@@ -28,4 +28,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :date, :description)
   end
 end
-
