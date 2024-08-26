@@ -15,6 +15,17 @@ class Venue < ApplicationRecord
   validates :lodging, presence: true
   validates :paying, presence: true
 
+  def introduce
+    case self.name[0].downcase
+    when "la"
+      return "À #{name}"
+    when "les"
+      return "Aux #{name}"
+    else
+      return "Au #{name}"
+    end
+  end
+
   def full_address
     "#{street}, #{city}, #{zipcode} #{country}"
   end
