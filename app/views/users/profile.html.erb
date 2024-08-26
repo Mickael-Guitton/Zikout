@@ -1,48 +1,23 @@
-<div>
-  <div class="user-banner">
+<div class="banner mb-4">
     <% if @user.banner.attached? %>
-      <%= cl_image_tag @user.banner.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @user.banner.key, class:"banner-img" %>
     <% else %>
-      <img src="../../assets/images/banner.jpeg" class="user-banner" alt="<%= @user.name %> banner">
+      <img src="../../assets/images/banner.jpeg" class="banner-img" alt="<%= @user.name %> banner">
     <% end %>
-  </div>
-  <div class="user-avatar">
     <% if @user.banner.attached? %>
-      <%= cl_image_tag @user.avatar.key, height: 100, width: 100, crop: :fill %>
+      <%= cl_image_tag @user.avatar.key, class:"banner-avatar" %>
     <% else %>
-      <img src="../../assets/images/Zikout_logo.svg" class="user-banner" alt="<%= @user.name %> banner">
+      <img src="../../assets/images/Zikout_logo.svg" class="banner-avatar" alt="<%= @user.name %> banner">
     <% end %>
-  </div>
+</div>
+
 <div class="d-flex">
-  <div class="user-info">
-    <h2><%= @user.name %></h2>
-    <h3><%= @user.city %></h3>
-    <h4> @user.styles</h4>
-    <ul>
-      <li>member</li>
-      <li>member</li>
-      <li>member</li>
-    </ul>
-    <ul>
-      <li>Facebook : </li>
-      <li>Instagram : </li>
-      <li>Twitter : </li>
-    </ul>
-    <% if @user.role == "tenant" %>
-      <div data-controller="venue-form">
-        <button id="create-venue-button" data-action="venue-form#showPopup">Créer un lieu</button>
-        <%= render 'venues/new-venue-form', venue: @venue %>
-      </div>
-    <% end %>
-  </div>
-  <div class="user-content">
-    <%= @user.description %>
-    <p>YOUTUBE</p>
-  </div>
-  <div class="border">
-    <h3>Evénements à venir</h3>
-    <% @my_events.each do |event| %>
-      <%= render "events/event", event: event %>
-    <% end %>
+  <div class="row">
+    <div class="user-info col-3">
+      <%= render "user-info" %>
+    </div>
+    <div class="user-content col-9">
+      <%= render "user-content" %>
+    </div>
   </div>
 </div>

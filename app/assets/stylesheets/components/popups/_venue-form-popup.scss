@@ -10,8 +10,8 @@
 
   .venue-form-popup {
     &__header {
-      background-color: $color-white;
-      border-bottom: 1px solid $color-light-gray;
+      background-color: white;
+      border-bottom: 1px solid lightgray;
       padding: 20px;
       text-align: center;
     }
@@ -21,8 +21,8 @@
     }
 
     &__footer {
-      background-color: $color-white;
-      border-top: 1px solid $color-light-gray;
+      background-color: white;
+      border-top: 1px solid lightgray;
       padding: 20px;
       text-align: center;
     }
