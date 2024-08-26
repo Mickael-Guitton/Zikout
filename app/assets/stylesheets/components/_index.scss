@@ -1,13 +1,8 @@
 // Import your components CSS files here.
 @import "alert";
-@import "avatar";
-@import "event-card";
+@import "components/cards/index";
+@import "components/buttons/index";
+@import "components/popups/index";
+@import "components/navbar/index";
 @import "form_legend_clear";
 @import "navbar";
-@import "my-user-card";
-@import "event_banner";
-@import "venue-card";
-@import "user-card";
-@import "button";
-@import "event_show_venue_box";
-
