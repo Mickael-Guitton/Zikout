@@ -10,9 +10,9 @@
 require 'faker'
 
 puts "Cleaning database..."
-User.destroy_all
-Venue.destroy_all
 Event.destroy_all
+Venue.destroy_all
+User.destroy_all
 
 puts "Creating fake tenants..."
 
@@ -31,7 +31,8 @@ puts "Creating fake acts..."
 styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 
 10.times do
-  User.create!(
+    file = URI.open(Faker::Avatar.image(slug: "my-own-slug"))
+    user = User.new(
     role: "act",
     email: Faker::Internet.email,
     password: "azerty1234",
@@ -41,8 +42,9 @@ styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic
             end,
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city,
-    avatar: Faker::Avatar.image(slug: "my-own-slug"),
   )
+  user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
+  user.save
 end
 
 puts "Creating fake venues..."
