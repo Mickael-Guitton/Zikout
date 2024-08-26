@@ -1,16 +1,16 @@
 <div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon navbar-custom">
   <div class="containt container">
     <div class= "d-flex align-items-center">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Zikout_logo.svg", alt: "Zikout"%>
-    <% end %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "Zikout_logo.svg", alt: "Zikout"%>
+      <% end %>
 
-    <%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do |f| %>
-      <div class="position-relative">
-        <%= f.text_field :query, class: "form-control form-custom me-2", placeholder: "Search", value: params[:query] %>
-        <%= f.submit nil, type: :image, src: image_path("loupe.svg"),  class: "btn btn-custom loupe" %>
-      </div>
-    <% end %>
+      <%= form_with url: home_path, method: :get, class: "d-flex align-items-center" do |f| %>
+        <div class="position-relative">
+          <%= f.text_field :query, value: params[:query], class: "form-control form-custom me-2", placeholder: "Search" %>
+          <%= f.submit nil, type: :image, src: image_path("loupe.svg"),  class: "btn btn-custom loupe" %>
+        </div>
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">

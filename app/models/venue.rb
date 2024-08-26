@@ -1,4 +1,8 @@
 class Venue < ApplicationRecord
+
+  include PgSearch::Model
+  multisearchable against: [:name, :city, :category]
+
   belongs_to :user
   has_many :events
 
