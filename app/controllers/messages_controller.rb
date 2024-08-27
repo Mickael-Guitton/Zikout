@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
 
     if @message.save
       respond_to do |format|
-
         format.html { redirect_to event_path(@event) }
       end
     else

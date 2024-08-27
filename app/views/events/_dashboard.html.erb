@@ -1,6 +1,6 @@
+<h5>Messages</h5>
 <%= turbo_stream_from "event_#{@event.id}_messages" %>
-  <div class="border-custom p-3 mb-4" id="messages">
-    <h5>Messages</h5>
+  <div class="border-custom p-3 mb-4 overflow-auto vh-100" id="messages">
       <% @messages.each do |message| %>
           <%= render "messages/message", message: message, user: message.user %>
       <% end %>
