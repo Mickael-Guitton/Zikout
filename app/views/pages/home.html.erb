@@ -4,7 +4,7 @@
   </div>
 
   <div class="col-9 results p-3">
-    <% if @results.present? %>
+    <% if @results.present? || @users.present?%>
       <h1>Résultats de votre <strong>recherche</strong></h1>
 
       <% if @events.present? %>
