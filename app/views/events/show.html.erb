@@ -11,7 +11,7 @@
 
         <% unless @event.is_locked %>
           <% if @event.venue.user == current_user %>
-            <%= button_to "Fermer Event", lock_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?",turbo_confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?" }  %>
+            <%= button_to "Vérouiller Event", lock_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?", turbo_confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?" } %>
           <% end %>
 
           <% if current_user.role == "act" %>
@@ -25,7 +25,7 @@
           <% end %>
         <% end %>
         <% if @event.is_locked && @event.venue.user == current_user %>
-          <%= button_to "Supprimer Event", event_path(@event), method: :delete, class: "button-custom", data: { turbo_confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?" } %>
+          <%= button_to "Supprimer Event", event_path(@event), method: :delete, class: "button-custom", data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer votre Event ?" } %>
         <% end %>
 
     </div>
@@ -33,47 +33,14 @@
     <h4><%= @event.category %></h3>
     <p><%= @event.description %></p>
 
-    <% if current_user == @event.venue.user %>
-
-      <% if @participant_accepted %>
-        <div  class="border-custom p-3 mb-4">
-          <h5>Participants acceptés</h5>
-          <div class="d-flex flex-wrap">
-            <% @participant_accepted.each do |participant| %>
-              <%= link_to profile_path do %>
-                <%= render "users/participant-user-card", participant: participant %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-      <% if @participant_pending %>
-        <div  class="border-custom p-3 mb-4">
-          <h5>Participants en attente</h5>
-          <div class="d-flex flex-wrap">
-            <% @participant_pending.each do |participant| %>
-              <%= link_to profile_path do %>
-                <%= render "users/participant-user-card", participant: participant %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-      <% if @participant_declined %>
-        <div  class="border-custom p-3">
-        <h5>Participants refusés</h5>
-        <div class="d-flex flex-wrap">
-          <% @participant_declined.each do |participant| %>
-            <%= link_to profile_path do %>
-              <%= render "users/participant-user-card", participant: participant %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
+    <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
+      <%= render "events/accepted-participants" %>
     <% end %>
 
+    <% if @event.is_locked == false %>
+      <%= render "events/waiting-participants" %>
+    <% else %>
+      <%= render "dashboard" %>
+    <% end %>
   </div>
 </div>

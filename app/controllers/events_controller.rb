@@ -15,6 +15,8 @@ class EventsController < ApplicationController
     @participant_declined = @participants.where(status: "declined")
     @already_applied = @participants.exists?(user: current_user)
     @participant = @participants.find_by(user: current_user) if @already_applied
+    @messages = Message.where(event: @event.id).sort_by(&:created_at)
+    @message = Message.new
   end
 
   def create

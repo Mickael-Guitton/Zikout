@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   resources :events, only: %i[index show destroy] do
     resources :participants, only: %i[create destroy]
-
+    post "messages", to: "messages#create"
   end
 
   get "home", to: "pages#home"
-  
+
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
   get "index", to: "users#index"

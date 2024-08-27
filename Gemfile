@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem "faker"
 gem "cloudinary"
 gem "pg_search"
+gem "actioncable-enhanced-postgresql-adapter"
 
 group :development, :test do
   gem "dotenv-rails"

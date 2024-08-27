@@ -1,9 +1,10 @@
 class Event < ApplicationRecord
-  
+
   include PgSearch::Model
   multisearchable against: [:name, :description, :category]
 
-  has_many :participants
+  has_many :participants, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :users, through: :participants, dependent: :destroy
   belongs_to :venue
 

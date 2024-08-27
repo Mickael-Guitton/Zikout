@@ -1,0 +1,12 @@
+<% if @participant_accepted %>
+        <div  class="border-custom p-3 mb-4">
+          <h5>Participants acceptés</h5>
+          <div class="d-flex flex-wrap">
+            <% @participant_accepted.each do |participant| %>
+              <%= link_to profile_path do %>
+                <%= render "users/participant-user-card", participant: participant %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
