@@ -21,4 +21,20 @@ class User < ApplicationRecord
     validates :description, presence: true
     validates :members, presence: true
   end
+
+  def placeholder_avatar
+    if avatar.attached?
+      avatar
+    else
+      "app/assets/images/placeholder_avatar.png"
+    end
+  end
+
+  def placeholder_banner
+    if banner.attached?
+      banner
+    else
+      "app/assets/images/placeholder_banner.jpg"
+    end
+  end
 end
