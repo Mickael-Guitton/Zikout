@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :participants
   has_many :events, through: :participants
   has_many :venues
+  has_many :messages
 
   has_one_attached :avatar
   has_one_attached :banner
