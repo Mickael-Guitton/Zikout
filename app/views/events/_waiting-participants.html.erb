@@ -1,7 +1,7 @@
 <% if @participant_pending %>
         <div  class="border-custom p-3 mb-4">
           <h5>Participants en attente</h5>
-          <div class="d-flex flex-wrap">
+          <div class="grid-custom">
             <% @participant_pending.each do |participant| %>
               <%= link_to profile_path do %>
                 <%= render "users/participant-user-card", participant: participant %>
@@ -14,7 +14,7 @@
       <% if @participant_declined %>
         <div  class="border-custom p-3">
         <h5>Participants refusés</h5>
-        <div class="d-flex flex-wrap">
+        <div class="grid-custom">
           <% @participant_declined.each do |participant| %>
             <%= link_to profile_path do %>
               <%= render "users/participant-user-card", participant: participant %>
