@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
 
   include PgSearch::Model
-  multisearchable against: [:name, :description, :category]
+  multisearchable against: [:name, :category, :venue_city]
 
   has_many :participants, dependent: :destroy
   has_many :messages, dependent: :destroy
@@ -48,5 +48,11 @@ class Event < ApplicationRecord
     return date_fr
   end
 
+  private
+
+  def venue_city
+    venue.try(:city)
+
+  end
 
 end

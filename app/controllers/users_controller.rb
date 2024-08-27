@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @acts = User.where(role: "act")
+    @tenants = User.where(role: "tenant")
   end
 
   private

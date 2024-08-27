@@ -1,5 +1,6 @@
-<div class="d-flex">
-  <div class="col-3 side-bar">
+<div class="d-flex justify-content-between">
+  <div class="col-3 side-bar p-3">
+
     <%= render "users/my-user-card" %>
 
     <div class="filters p-4">
@@ -15,12 +16,47 @@
       </div>
     </div>
   </div>
-  <div class="col-9 results">
-    <h1>Les utilisateurs proches de chez vous.</h1>
-    <div class="d-flex flex-wrap">
-      <% @users.each do |user| %>
-        <%= render "user-card", user: user %>
-      <% end %>
+
+  <div class="col-9 results p-3">
+    <h1>Les utilisateurs proches de chez vous</h1>
+
+    <% if  current_user.role == "act" %>
+    <div class="border p-3">
+      <h2>Organisateur</h2>
+      <div class="d-flex flex-wrap justify-content-around">
+        <% @tenants.each do |user| %>
+          <%= render "user-card", user: user %>
+        <% end %>
+      </div>
     </div>
+    <div class="border p-3">
+      <h2>Groupe et musiciens</h2>
+      <div class="d-flex flex-wrap justify-content-around">
+        <% @acts.each do |user| %>
+          <%= render "user-card", user: user %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+    <% if  current_user.role == "tenant" %>
+    <div class="border p-3">
+      <h2>Groupe et musiciens</h2>
+      <div class="d-flex flex-wrap justify-content-around">
+        <% @acts.each do |user| %>
+          <%= render "user-card", user: user %>
+        <% end %>
+      </div>
+    </div>
+    <div class="border p-3">
+      <h2>Organisateur</h2>
+      <div class="d-flex flex-wrap justify-content-around">
+        <% @tenants.each do |user| %>
+          <%= render "user-card", user: user %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
   </div>
 </div>
