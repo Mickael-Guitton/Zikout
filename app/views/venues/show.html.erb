@@ -10,15 +10,32 @@
   <h4><%= @venue.category %></h3>
   <p><%= @venue.description %></p>
 
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <button id="create-event-button" >Créer un événement</button>
-        <%= render 'events/new-event-form', event: @event %>
-      </div>
-    <div>
-      <h2> Evénements à venir </h2>
-      <% @events.each do |event| %>
-        <%= render "events/event", event: event %>
+  <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Créer un évènement
+  </button>
 
-      <% end %>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5"><strong>Créer un évènement</strong></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render "events/event-form", event: @new_event %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="button-custom" form="event_form">Ajouter</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <h2> Evénements à venir </h2>
+  <% @events.each do |event| %>
+    <%= render "events/event", event: event %>
+  <% end %>
 </div>
+
+<!-- class="modal-dialog modal-dialog-centered modal-dialog-scrollable" -->

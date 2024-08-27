@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+//= require datetime_picker_input
 
 const application = Application.start()
 
