@@ -1,26 +1,17 @@
 <div class="d-flex justify-content-between">
-  <div class="row">
-    <div class="col-3 side-bar">
+
+    <div class="col-3 side-bar p-3">
       <%= render "users/my-user-card"%>
 
       <div class="filters p-4">
-        <h2>Filtres</h2>
-        <form action="/events" method="get">
-        <div class="form-group">
-          <label for="city">Ville</label>
-          <input type="text" name="city" id="city" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="style">Style</label>
-          <input type="text" name="style" id="style" class="form-control">
-        </div>
+        <p> FILTERS </p>
       </div>
     </div>
-    <div class="col-9 results">
-      <h1>Evénements à venir proches de chez vous.</h1>
+    <div class="col-9 results p-3">
+      <h1>Evénements à venir proches de chez vous</h1>
       <% @events.each do |event| %>
         <%= render "event", event: event %>
       <% end %>
     </div>
-  </div>
+
 </div>

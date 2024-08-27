@@ -1,4 +1,8 @@
 class Venue < ApplicationRecord
+
+  include PgSearch::Model
+  multisearchable against: [:name, :city, :category]
+
   belongs_to :user
   has_many :events
 
@@ -14,6 +18,17 @@ class Venue < ApplicationRecord
   validates :scene_size, presence: true
   validates :lodging, presence: true
   validates :paying, presence: true
+
+  def introduce
+    case self.name[0].downcase
+    when "la"
+      return "À #{name}"
+    when "les"
+      return "Aux #{name}"
+    else
+      return "Au #{name}"
+    end
+  end
 
   def full_address
     "#{street}, #{city}, #{zipcode} #{country}"

@@ -53,6 +53,8 @@ gem "sassc-rails"
 gem "faker"
 gem "cloudinary"
 gem 'datetime_picker_input'
+gem "pg_search"
+gem "actioncable-enhanced-postgresql-adapter"
 
 group :development, :test do
   gem "dotenv-rails"

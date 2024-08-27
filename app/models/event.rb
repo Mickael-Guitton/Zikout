@@ -1,7 +1,14 @@
 class Event < ApplicationRecord
-  has_many :participants
-  has_many :users, through: :participants
+
+  include PgSearch::Model
+  multisearchable against: [:name, :description, :category]
+
+  has_many :participants, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :users, through: :participants, dependent: :destroy
   belongs_to :venue
+
+  validates :start_date, presence: true
 
   def fr_start_date
     date_str = start_date.to_s
@@ -40,4 +47,6 @@ class Event < ApplicationRecord
     end
     return date_fr
   end
+
+
 end

@@ -13,14 +13,18 @@ Rails.application.routes.draw do
     post "events", to: "events#create"
   end
 
-  resources :events, only: %i[index show] do
-    resources :participants, only: %i[create]
+  resources :events, only: %i[index show destroy] do
+    resources :participants, only: %i[create destroy]
+    post "messages", to: "messages#create"
   end
+
+  get "home", to: "pages#home"
 
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
   get "index", to: "users#index"
 
+  patch "events/:id/lock", to: "events#lock_event", as: "lock_event"
   patch "participants/:id/accept", to: "participants#accept", as: "accept"
   patch "participants/:id/pending", to: "participants#set_to_pending", as: "set_to_pending"
   patch "participants/:id/decline", to: "participants#decline", as: "decline"
