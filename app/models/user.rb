@@ -17,8 +17,27 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :city, presence: true
 
+  before_create :placeholder_avatar
+  before_create :placeholder_banner
+
   if :role == "act"
     validates :description, presence: true
     validates :members, presence: true
+  end
+
+  def placeholder_avatar
+    if avatar.attached?
+      avatar
+    else
+      "app/assets/images/placeholder_avatar.png"
+    end
+  end
+
+  def placeholder_banner
+    if banner.attached?
+      banner
+    else
+      "app/assets/images/placeholder_banner.jpg"
+    end
   end
 end
