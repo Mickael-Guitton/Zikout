@@ -19,10 +19,15 @@ Rails.application.routes.draw do
   end
 
   get "home", to: "pages#home"
-
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
+
+  resources :users, only: [] do
+    post "venues", to: "venues#create"
+  end
+
   get "index", to: "users#index"
+
 
   patch "events/:id/lock", to: "events#lock_event", as: "lock_event"
   patch "participants/:id/accept", to: "participants#accept", as: "accept"
