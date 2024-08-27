@@ -67,10 +67,10 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :avatar, as: :file %>
       <%= f.input :banner, as: :file %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
     </div>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
 
