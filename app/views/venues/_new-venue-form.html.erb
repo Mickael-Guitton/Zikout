@@ -1,43 +1,17 @@
-<!-- app/views/venues/_new_venue_form.html.erb -->
-<div data-action="click@window->popup#closePopup">
-  <div id="new-venue-popup" data-venue-form-target="popup" class="venue-form-popup">
-    <div class="popup-content">
-      <span class="close-button" data-action="popup#hidePopup"></span>
-      <%= simple_form_for @venue do |f| %>
-        <div class="field">
-          <%= f.text_field :name %>
-        </div>
-        <div class="field">
-          <%= f.text_field :category %>
-        </div>
-        <div class="field">
-          <%= f.text_field :street %>
-        </div>
-        <div class="field">
-          <%= f.text_field :city %>
-        </div>
-        <div class="field">
-          <%= f.text_field :zipcode %>
-        </div>
-        <div class="field">
-          <%= f.text_field :country %>
-        </div>
-        <div class="field">
-          <%= f.text_field :lodging %>
-        </div>
-        <div class="field">
-          <%= f.text_field :capacity %>
-        </div>
-        <div class="field">
-          <%= f.text_field :scene_size %>
-        </div>
-        <div class="field">
-          <%= f.text_field :description, as: :text %>
-        </div>
-        <div class="actions">
-          <%= f.button :submit, "Créer le lieu" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= simple_form_for [@user, venue], url: user_venues_path(@user), html: { id: new_venue_form} do |f| %>
+  <%= f.input :name, label: "nom de l'établissement:" %>
+  <%= f.label :category, "Catégorie:" %>
+  <%= f.select :category, Venue::CATEGORIES %>
+  <%= f.input :street, label: "Numéro, type et nom de la voie:" %>
+  <%= f.input :city, label: "ville:" %>
+  <%= f.input :zipcode, label: "code postal:" %>
+  <%= f.label :country, "Pays:" %>
+  <%= f.select :country, Venue::COUNTRY %>
+  <%= f.input :description, label: "description de votre établissement:", as: :text, input_html: {rows: 4} %>
+  <%= f.input :lodging, label: "Votre établissement comprend-t-il des loges?" %>
+  <%= f.input :paying, label: "Prévoyez-vous une rémunération pour les artistes?" %>
+  <%= f.label :capacity, "Quelle est la capacité d'accueil de votre établissement?" %>
+  <%= f.select :capacity, Venue::CAPACITY %>
+  <%= f.label :scene_size, "Taille approximative de la scène:" %>
+  <%= f.select :scene_size, Venue::SCENE_SIZE %>
+<% end %>
