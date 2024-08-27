@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :venues, only: %i[index show]
+  resources :venues, only: %i[index show] do
+    post "events", to: "events#create"
+  end
 
   resources :events, only: %i[index show] do
     resources :participants, only: %i[create]
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
   get "index", to: "users#index"
-
 
   patch "participants/:id/accept", to: "participants#accept", as: "accept"
   patch "participants/:id/pending", to: "participants#set_to_pending", as: "set_to_pending"

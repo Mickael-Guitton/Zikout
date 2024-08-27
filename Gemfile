@@ -52,6 +52,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "faker"
 gem "cloudinary"
+gem 'datetime_picker_input'
 
 group :development, :test do
   gem "dotenv-rails"
