@@ -17,6 +17,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :city, presence: true
 
+  before_create :placeholder_avatar
+  before_create :placeholder_banner
+
   if :role == "act"
     validates :description, presence: true
     validates :members, presence: true
