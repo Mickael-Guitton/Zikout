@@ -1,4 +1,41 @@
 <div class="d-flex">
+  <div class="col-3 side-bar p-3">
+    <%= render "users/my-user-card"%>
+  </div>
 
+  <div class="col-9 results p-3">
+    <% if @results.present? %>
+      <h1>Résultats de votre <strong>recherche</strong></h1>
 
+      <% if @events.present? %>
+        <div  class="p-3 mb-4">
+          <h2 class="mb-4">Events</h2>
+          <% @events.each do |event| %>
+            <%= render "events/event", event: event %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if @users.present? %>
+        <div  class="p-3 mb-4">
+          <h2 class="mb-4">Utilisateurs</h2>
+          <% @users.each do |user| %>
+            <%= render "users/user-card", user: user %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if @venues.present? %>
+        <div  class="p-3 mb-4">
+          <h2 class="mb-4">Salles</h2>
+          <% @venues.each do |venue| %>
+            <%= render "venues/venue", venue: venue %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% else %>
+        <h1>Aucun résultat pour votre recherche</h1>
+    <% end %>
+  </div>
 </div>
