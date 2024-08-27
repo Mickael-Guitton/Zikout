@@ -74,13 +74,14 @@ end
 
 puts "Creating fake events..."
 venues = Venue.all
-categories = ["Bar", "Restaurant", "Club", "Salle de concert", "Salle polyvalente", "Festival"]
+styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 venues.each do |venue|
   Event.create!(
     name: Faker::Music.album,
     description: Faker::Lorem.paragraph,
     start_date: Faker::Date.between(from: Date.today, to: '2050-09-25'),
+    end_date: Faker::Date.between(from: Date.today, to: '2050-09-25'),
     venue_id: venue.id,
-    category: categories.sample
+    style: styles.sample
   )
 end

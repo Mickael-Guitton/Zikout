@@ -5,14 +5,10 @@
   <%= f.input :start_date,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
-  <%# <%= f.text_field :start_date,
-                    class: 'flatpickr',
-                    data: { controller: 'flatpickr',
-                    flatpickr_allow_input: true,
-                    flatpickr_enable_time: true,
-                    flatpickr_date_format: 'Y-m-d H:i',
-                    flatpickr_time_24hr: true,
-                    flatpickr_minute_increment: 15 } %>
-  <%= f.input :category %>
+  <%= f.input :end_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.label :style, "Style" %><br />
+  <%= f.select :style, User::STYLES %>
   <%= f.input :number_of_acts, input_html: { min: 1 } %>
 <% end %>
