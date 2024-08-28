@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :participants
   has_many :events, through: :participants
-  has_many :venues
+  has_many :venues, dependent: :destroy
   has_many :messages
   has_many :notifications
 

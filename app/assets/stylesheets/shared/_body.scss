@@ -2,6 +2,10 @@
   width: 90%;
 }
 
+body {
+  background-color: white;
+}
+
 a {
   text-decoration: none;
   color: #333333;
@@ -29,8 +33,12 @@ a {
     top: calc(50%);
     left: calc(40%);
     width: 20%;
-    border: 5px solid white;
+    border: 1px solid white;
     border-radius: 50%;
   }
 
+}
+
+.results {
+  width: 65vw;
 }

@@ -4,6 +4,14 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+    @venue = Venue.new
+    @user = current_user
+  end
+
+  def new
+    @user = User.find(params[:user_id])
+    @venue = @user.venues.new
+    logger.debug "New Venue Initialized: #{@venue.inspect}"
   end
 
   def show
@@ -13,11 +21,12 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.new(venue_params)
+    @user = current_user
+    @venue = @user.venues.new(venue_params)
     if @venue.save
       redirect_to @venue, notice: "L'établissement a bien été créé"
     else
-      redirect_to venue_path, notice: "L'évènement n'a pas été créé"
+      redirect_to user_path(@venue.user), notice: "L'évènement n'a pas été créé"
     end
   end
 
@@ -28,6 +37,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:name, :category, :street, :city, :zipcode, :country, :description, :lodging, :paying, :capacity, :scene_size)
+    params.require(:venue).permit(:id, :name, :category, :street, :city, :zipcode, :country, :description, :lodging, :paying, :capacity, :scene_size, :user_id)
   end
 end

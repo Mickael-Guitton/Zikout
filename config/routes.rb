@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
 
-  resources :users, only: [] do
+  resources :users, only: %i[index show] do
     post "venues", to: "venues#create"
   end
 

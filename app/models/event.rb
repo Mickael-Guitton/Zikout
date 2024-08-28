@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   include PgSearch::Model
   multisearchable against: [:name, :style, :venue_city]
 
