@@ -26,18 +26,16 @@ class User < ApplicationRecord
   end
 
   def placeholder_avatar
-    if avatar.attached?
-      avatar
-    else
-      "app/assets/images/placeholder_avatar.png"
+    unless avatar.attached?
+      placeholder_avatar_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724792835/images_v8c6kp.jpg'
+      avatar.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_avatar_url)), filename: 'avatar-placeholder.jpg', content_type: 'image/jpeg')
     end
   end
 
   def placeholder_banner
-    if banner.attached?
-      banner
-    else
-      "app/assets/images/placeholder_banner.jpg"
+    unless banner.attached?
+      placeholder_banner_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724793550/Article-Name-Banner-Placeholder-Image_jh5pvz.jpg'
+      banner.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_banner_url)), filename: 'banner-placeholder.jpg', content_type: 'image/jpeg')
     end
   end
 end
