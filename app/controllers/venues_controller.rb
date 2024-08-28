@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[new create]
+  before_action :set_user, only: %i[create]
 
   def index
     @venues = Venue.all
