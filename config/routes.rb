@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :venues, only: %i[index show] do
+  resources :venues, only: %i[index show new] do
     post "events", to: "events#create"
   end
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get "profile", to: "users#profile"
   get "users/:id", to: "users#show", as: "user"
 
-  resources :users, only: [] do
+  resources :users, only: %i[index show] do
     post "venues", to: "venues#create"
   end
 
