@@ -1,5 +1,4 @@
-
-  <div class="user-card">
+<div class="participant-user-card">
     <%= link_to user_path(participant.user), style: 'text-decoration: none; color: inherit', target: '_blank' do %>
       <div class="banner-user-card">
         <%= image_tag participant.user.banner, class: "user-card-banner" %>
@@ -10,18 +9,14 @@
       <h4><%= participant.user.name %></h4>
       <p><%= participant.user.styles %></p>
 
-  <% if participant.status == "pending"%>
-    <div>
-      <%= link_to "Accepter", accept_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
-    </div>
-    <div>
-      <%= link_to "Décliner", decline_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
-    </div>
-  <% elsif participant.status == "accepted" || participant.status == "declined" %>
-    <div>
-      <%= link_to "Annuler", set_to_pending_path(participant), class:"button-custom",  data: {turbo_method: :patch} %>
-  </div>
-  <% end %>
-
-
+    <% if participant.status == "pending"%>
+      <div class="d-flex justify-content-around px-2">
+        <%= link_to "Accepter", accept_path(participant), class:"button-card",  data: {turbo_method: :patch} %>
+        <%= link_to "Décliner", decline_path(participant), class:"button-card",  data: {turbo_method: :patch} %>
+      </div>
+    <% elsif participant.status == "accepted" || participant.status == "declined" %>
+      <div>
+        <%= link_to "Annuler", set_to_pending_path(participant), class:"button-card",  data: {turbo_method: :patch} %>
+      </div>
+    <% end %>
 </div>
