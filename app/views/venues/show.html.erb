@@ -10,9 +10,11 @@
   <h4><%= @venue.category %></h3>
   <p><%= @venue.description %></p>
 
-  <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Créer un évènement
-  </button>
+  <% if current_user == @venue.user %>
+    <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Créer un évènement
+    </button>
+  <% end %>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
