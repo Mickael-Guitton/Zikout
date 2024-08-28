@@ -34,6 +34,7 @@
     <p><%= @event.description %></p>
     <p>Débute le : <%= @event.fr_start_date %></p>
     <p>Termine le : <%= @event.fr_end_date %></p>
+    
     <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
       <%= render "events/accepted-participants" %>
       <% if @event.is_locked %>
