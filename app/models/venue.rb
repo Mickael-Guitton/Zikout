@@ -1,5 +1,4 @@
 class Venue < ApplicationRecord
-
   include PgSearch::Model
   multisearchable against: [:name, :city, :category]
 
@@ -10,13 +9,18 @@ class Venue < ApplicationRecord
   validates :street, presence: true
   validates :city, presence: true
   validates :zipcode, presence: true
+  COUNTRY = ["France", "Belgique", "Suisse", "Luxembourg", "Canada", "Espagne", "Italie", "Allemagne", "Royaume-Uni", "États-Unis", "Australie", "Japon", "Chine", "Russie", "Brésil", "Argentine", "Autre"]
   validates :country, presence: true
   validates :description, presence: true
-  CATEGORIES = ["Bar", "Club", "Restaurant", "Salle de Spectacle", "Salle Polyvalente", "Théâtre", "Festival", "Other"]
+  CATEGORIES = ["Bar", "Club", "Restaurant", "Salle de Spectacle", "Salle Polyvalente", "Théâtre", "Festival", "Autre"]
   validates :category, presence: true, inclusion: { in: CATEGORIES }
+  CAPACITY = (30..500).to_a
   validates :capacity, presence: true
+  SCENE_SIZE = ["très petite - 2m² à 6m²", "petite - 7m² à 14m²", "moyenne - 15m² à 24m²", "grande - 25m² à 35m²", "très grande - 36m² et plus"]
   validates :scene_size, presence: true
+  LODGING = ["OUI", "NON"]
   validates :lodging, presence: true
+  PAYING = ["OUI", "NON"]
   validates :paying, presence: true
 
   def introduce

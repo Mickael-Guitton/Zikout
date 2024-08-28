@@ -10,17 +10,27 @@
   <h4><%= @venue.category %></h3>
   <p><%= @venue.description %></p>
 
+
   <% if current_user == @venue.user %>
-    <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#venueModal">
+      Ajouter un lieu
+    </button>
+  <% end %>
+
+  <%= render "modal" %>
+
+  <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
+    <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#eventModal">
+
       Créer un évènement
     </button>
   <% end %>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title fs-5"><strong>Créer un évènement</strong></h1>
+          <h2 class="modal-title fs-5"><strong>Créer un évènement:</strong></h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

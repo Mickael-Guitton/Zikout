@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_venue, only: %i[new create]
 
@@ -49,6 +48,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:id, :name, :description, :number_of_acts, :venue_id, :category, :start_date)
+    params.require(:event).permit(:id, :name, :description, :number_of_acts, :venue_id, :style, :start_date, :end_date)
   end
 end

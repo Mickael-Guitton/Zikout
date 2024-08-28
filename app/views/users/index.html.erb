@@ -23,7 +23,7 @@
     <% if  current_user.role == "act" %>
     <div class="border p-3">
       <h2>Organisateur</h2>
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="grid-custom">
         <% @tenants.each do |user| %>
           <%= render "user-card", user: user %>
         <% end %>
@@ -31,7 +31,7 @@
     </div>
     <div class="border p-3">
       <h2>Groupe et musiciens</h2>
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="grid-custom">
         <% @acts.each do |user| %>
           <%= render "user-card", user: user %>
         <% end %>
@@ -42,7 +42,7 @@
     <% if  current_user.role == "tenant" %>
     <div class="border p-3">
       <h2>Groupe et musiciens</h2>
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="grid-custom">
         <% @acts.each do |user| %>
           <%= render "user-card", user: user %>
         <% end %>
@@ -50,7 +50,7 @@
     </div>
     <div class="border p-3">
       <h2>Organisateur</h2>
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="grid-custom">
         <% @tenants.each do |user| %>
           <%= render "user-card", user: user %>
         <% end %>
