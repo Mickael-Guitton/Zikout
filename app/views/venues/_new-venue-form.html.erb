@@ -10,7 +10,7 @@
   <%= f.input :description, label: "description de votre établissement:", as: :text, input_html: {rows: 4} %>
   <%= f.input :lodging, label: "Votre établissement comprend-t-il des loges?" %>
   <%= f.input :paying, label: "Prévoyez-vous une rémunération pour les artistes?" %>
-  <%= f.input :capacity, "Quelle est la capacité d'accueil de votre établissement?" %>
-  <%= f.label :scene_size, "Taille approximative de la scène:" %>
+  <%= f.input :capacity, label: "Quelle est la capacité d'accueil de votre établissement?" %>
+  <%= f.label :scene_size, label: "Taille approximative de la scène:" %>
   <%= f.select :scene_size, Venue::SCENE_SIZE %>
 <% end %>
