@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[create]
+  before_action :set_user, only: %i[create update]
 
   def index
     @venues = Venue.all
@@ -18,6 +18,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @new_event = Event.new
     @events = @venue.events
+    @user = current_user
   end
 
   def create
@@ -27,6 +28,21 @@ class VenuesController < ApplicationController
       redirect_to @venue, notice: "L'établissement a bien été créé"
     else
       redirect_to user_path(@venue.user), notice: "L'évènement n'a pas été créé"
+    end
+  end
+
+  def edit
+    @user = User.find(params[:user_id])
+    @venue = Venue.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @venue = @user.venues.find(params[:id])
+    if @venue.update(venue_params)
+      redirect_to @venue, notice: "L'établissement a bien été mis à jour"
+    else
+      redirect_to user_path(@venue.user), notice: "L'évènement n'a pas été mis à jour"
     end
   end
 

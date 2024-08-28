@@ -6,6 +6,7 @@
   border-radius: 10px;
   position: relative;
   margin-bottom: 30px;
+  text-align: center;
 
   h4 {
     margin: 65px 10px 30px 10px;
@@ -46,10 +47,24 @@
   border: solid 1px white;
 }
 
-#button-user-card {
-  position: absolute;
-  top: calc(88% - 15px);
-  left: calc(50% - 65px);
-  width: 130px;
-  height: 30px;
+.participant-user-card {
+  width: 200px;
+  height: 280px;
+  margin: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
+
+  h4 {
+    margin: 65px 10px 20px 10px;
+    font-size: medium;
+    font-weight: bolder;
+  }
+  p {
+    margin-bottom: 20px;
+    font-size: medium;
+    font-weight: lighter;
+  }
 }

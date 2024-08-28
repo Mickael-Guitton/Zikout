@@ -10,12 +10,18 @@
   <h4><%= @venue.category %></h3>
   <p><%= @venue.description %></p>
 
-  <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
-    <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#eventModal">
+  <div>
+    <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
+      <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingVenueModal">
+        Modifier le lieu
+      </button>
+      <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#eventModal">
+        Créer un évènement
+      </button>
+    <% end %>
+  </div>
 
-      Créer un évènement
-    </button>
-  <% end %>
+  <%= render "editing-modal" %>
 
 
   <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
