@@ -27,14 +27,15 @@
         <% if @event.is_locked && @event.venue.user == current_user %>
           <%= button_to "Supprimer Event", event_path(@event), method: :delete, class: "button-custom", data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer votre Event ?" } %>
       <% end %>
-
     </div>
 
+    <div class="d-flex">
+      <p class="me-1">Du <%= @event.fr_start_date %>,</p>
+      <p>au <%= @event.fr_end_date %></p>
+    </div>
 
     <p><%= @event.description %></p>
-    <p>Débute le : <%= @event.fr_start_date %></p>
-    <p>Termine le : <%= @event.fr_end_date %></p>
-    
+
     <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
       <%= render "events/accepted-participants" %>
       <% if @event.is_locked %>
