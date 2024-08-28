@@ -33,6 +33,20 @@
           <li class="nav-item">
             <%= link_to "#", class: "navbar-brand me-4" do %>
               <%= image_tag "notifications.svg", alt: "Notifications"%>
+
+                <% if user_signed_in? %>
+                  <% if current_user.notifications.unread.any? %>
+                    <span class="badge"><%= current_user.notifications.unread.count %></span>
+                  <% end %>
+
+                  <ul class="dropdown-menu">
+                    <% current_user.notifications.order(created_at: :desc).each do |notification| %>
+                      <li class="<%= 'unread' unless notification.read %>">
+                        <%= link_to notification.content, mark_as_read_notification_path(notification), method: :patch %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
             <% end %>
           </li>
       </ul>

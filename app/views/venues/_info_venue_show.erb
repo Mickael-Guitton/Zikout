@@ -2,12 +2,7 @@
 <div class="col-3 border-custom p-3">
   <h2><%= @venue.name %></h2>
   <p><%= @venue.city %></p>
-  <% if @event %>
-    <h4>débute le</h4>
-    <p>le <%= @event.fr_start_date %></p>
-    <h4>se termine le</h4>
-    <p>le <%= @event.fr_end_date %></p>
-  <% end %>
+
   <p>Capacité: <%= @venue.capacity %></p>
   <p>Taille de scène: <%= @venue.scene_size %></p>
   <p>Loge: <%= @venue.lodging %></p>

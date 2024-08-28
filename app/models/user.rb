@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :events, through: :participants
   has_many :venues, dependent: :destroy
   has_many :messages
+  has_many :notifications
 
   has_one_attached :avatar
   has_one_attached :banner
@@ -24,6 +25,12 @@ class User < ApplicationRecord
     validates :description, presence: true
     validates :members, presence: true
   end
+
+  def act?
+    role == 'act'
+  end
+
+  private
 
   def placeholder_avatar
     unless avatar.attached?
