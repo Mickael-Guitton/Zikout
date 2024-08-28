@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :events, through: :participants
   has_many :venues, dependent: :destroy
   has_many :messages
+  has_many :notifications
 
   has_one_attached :avatar
   has_one_attached :banner
@@ -25,9 +26,15 @@ class User < ApplicationRecord
     validates :members, presence: true
   end
 
+  def act?
+    role == 'act'
+  end
+
+  private
+
   def placeholder_avatar
     unless avatar.attached?
-      placeholder_avatar_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724792835/images_v8c6kp.jpg'
+      placeholder_avatar_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724848294/fake_avatar_tgfni6.jpg'
       avatar.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_avatar_url)), filename: 'avatar-placeholder.jpg', content_type: 'image/jpeg')
     end
   end

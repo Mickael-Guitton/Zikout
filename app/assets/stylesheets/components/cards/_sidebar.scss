@@ -3,8 +3,12 @@
   width: 20vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  position: sticky;
+}
+
+.sticky-custom {
+  position: sticky !important;
   top: 100px;
+  height: 70vh;
 }
 
 .filters {
@@ -12,6 +16,5 @@
   width: 20vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  position: fixed;
-  bottom: 35px;
+  margin-top: 35px;
 }

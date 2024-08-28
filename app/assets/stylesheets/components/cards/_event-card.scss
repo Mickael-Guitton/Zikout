@@ -3,9 +3,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: 1px solid #e1e1e1;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 16px;
-  height: 260px;
+  height: 280px;
   width: 100%;
   margin: 10px auto
 }
@@ -14,11 +14,6 @@
   height: 70%;
   width: 100%;
   object-fit: cover;
-}
-
-.event-card_body {
-  padding: 12px;
-  position: relative;
 }
 
 .event-card_info {

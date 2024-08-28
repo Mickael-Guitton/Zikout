@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_08_28_075213) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +66,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_messages_on_event_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.boolean "read"
+    t.string "notification_type"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_notifications_on_event_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -130,6 +144,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
   add_foreign_key "events", "venues"
   add_foreign_key "messages", "events"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "events"
+  add_foreign_key "notifications", "users"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
   add_foreign_key "venues", "users"

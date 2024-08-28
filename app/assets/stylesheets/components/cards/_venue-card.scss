@@ -3,9 +3,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: 1px solid #e1e1e1;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 10px;
-  height: 250px;
+  height: 280px;
   width: 100%;
   margin: 10px auto
 }
@@ -16,15 +16,7 @@
   object-fit: cover;
 }
 
-.venue-card_body {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  }
-
 .venue-card_info {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }

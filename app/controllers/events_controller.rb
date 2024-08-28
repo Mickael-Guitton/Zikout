@@ -30,8 +30,7 @@ class EventsController < ApplicationController
 
   def lock_event
     @event = Event.find(params[:id])
-    @event.is_locked = true
-    @event.save
+    @event.update!(is_locked: true)
     redirect_to event_path(@event)
   end
 

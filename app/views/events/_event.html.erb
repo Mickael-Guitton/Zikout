@@ -1,11 +1,11 @@
 <%= link_to event_path(event), style: 'text-decoration: none; color: inherit' do %>
   <div class="event-card my-4">
       <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="event-card_img" >
-      <div class="event-card_body">
-        <h4><%= event.name %></h4>
-        <div class="event-card_info">
-          <p>le <%= event.fr_start_date %></p>
-          <p><%= event.venue.introduce %> <%= event.venue.name %>, à <%= event.venue.city %></p>
+      <div>
+        <h4 class="my-0 pt-3 ps-3"><%= event.name %></h4>
+        <div class="event-card_info px-3 pt-1">
+          <p class="fst-italic">Le <%= event.fr_start_date %></p>
+          <p>À <%= event.venue.city %></p>
         </div>
       </div>
   </div>
