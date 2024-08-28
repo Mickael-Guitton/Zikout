@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-between">
-    <div class="col-3">
+    <div class="col-3 sticky-custom">
       <div class="side-bar">
         <%= render "users/my-user-card"%>
       </div>
       <div class="filters p-4">
-        <h5> Fitres </h5>
+        <h5 class="mb-3"> Fitres </h5>
         <form action="/users" method="get">
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label for="city">Ville</label>
             <input type="text" name="city" id="city" class="form-control">
           </div>
