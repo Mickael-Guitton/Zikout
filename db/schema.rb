@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_082220) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_082220) do
     t.integer "number_of_acts"
     t.bigint "venue_id"
     t.boolean "is_locked", default: false
-    t.string "category"
+    t.string "style"
+    t.datetime "end_date"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 

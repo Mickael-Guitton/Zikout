@@ -1,25 +1,21 @@
 .my-user-card {
   width: 100%;
-  border: 1px solid #ec7b00 ;
   border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
   position: relative;
-  text-align: center;
+
 
   .my-user-card_banner {
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
-
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   .my-user-card_avatar {
     position: absolute;
-    top: calc(33%);
-    left: calc(35%);
+    top: 55px;
     z-index: 100;
     width: 30%;
     border-radius: 50%;
+    border: solid 1px white;
   }
 }
