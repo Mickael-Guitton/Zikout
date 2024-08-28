@@ -12,6 +12,7 @@
 
   <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
     <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#eventModal">
+
       Créer un évènement
     </button>
   <% end %>
