@@ -9,8 +9,11 @@ class MessagesController < ApplicationController
     @message.user = @user
 
     if @message.save
-      respond_to do |format|
-        format.html { redirect_to event_path(@event) }
+      @message.receivers.each do |receiver|
+        NotificationService.notify_user(receiver, "Il y a de nouveaux messages sur #{@message.event}", 'message')
+        respond_to do |format|
+          format.html { redirect_to event_path(@event) }
+        end
       end
     else
       render "events/show", status: :unprocessable_entity

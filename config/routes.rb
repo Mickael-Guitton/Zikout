@@ -10,12 +10,21 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   resources :venues, only: %i[index show] do
-    post "events", to: "events#create"
+    resources :events, only: %i[create]
+  end
+
+  resources :notifications, only: [:index] do
+    member do
+      patch :mark_as_read
+    end
   end
 
   resources :events, only: %i[index show destroy] do
     resources :participants, only: %i[create destroy]
     post "messages", to: "messages#create"
+    member do
+      patch :lock_event
+    end
   end
 
   get "home", to: "pages#home"
@@ -29,7 +38,6 @@ Rails.application.routes.draw do
   get "index", to: "users#index"
 
 
-  patch "events/:id/lock", to: "events#lock_event", as: "lock_event"
   patch "participants/:id/accept", to: "participants#accept", as: "accept"
   patch "participants/:id/pending", to: "participants#set_to_pending", as: "set_to_pending"
   patch "participants/:id/decline", to: "participants#decline", as: "decline"

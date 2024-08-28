@@ -9,10 +9,9 @@
     <div class="d-flex justify-content-between align-items-center">
       <h1><%= @event.name %></h1>
 
-      <% if current_user == @venue.user %>
-        <% unless @event.is_locked %>
-          <% if @event.venue.user == current_user %>
-            <%= button_to "Vérouiller Event", lock_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?", turbo_confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?" } %>
+        <% unless @event.is_locked == true %>
+          <% if current_user == @venue.user %>
+            <%= button_to "Vérouiller Event", lock_event_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?", turbo_confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?" } %>
           <% end %>
 
           <% if current_user.role == "act" %>
@@ -27,15 +26,16 @@
         <% end %>
         <% if @event.is_locked && @event.venue.user == current_user %>
           <%= button_to "Supprimer Event", event_path(@event), method: :delete, class: "button-custom", data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer votre Event ?" } %>
-        <% end %>
       <% end %>
 
     </div>
 
 
     <p><%= @event.description %></p>
-
-    <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
+    <%= @event.fr_start_date %>
+    <%= @event.end_date %>
+    <%= console %>
+    <% if current_user == @event.venue.user || current_user.participants.where(event: @event, status: "accepted") %>
       <%= render "events/accepted-participants" %>
 
       <% if @event.is_locked %>

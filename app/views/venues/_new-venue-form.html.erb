@@ -1,4 +1,4 @@
-<%= simple_form_for [@user, venue], url: user_venues_path(@user), html: { id: new_venue_form} do |f| %>
+<%= simple_form_for [user, venue], url: user_venues_path(@user), html: { id: new_venue_form} do |f| %>
   <%= f.input :name, label: "nom de l'établissement:" %>
   <%= f.label :category, "Catégorie:" %>
   <%= f.select :category, Venue::CATEGORIES %>

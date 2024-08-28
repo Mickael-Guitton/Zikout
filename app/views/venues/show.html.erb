@@ -26,6 +26,7 @@
     </button>
   <% end %>
 
+
   <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -44,6 +45,7 @@
     </div>
   </div>
 
+  <h2> Evénements passés </h2>
   <h2> Evénements à venir </h2>
   <% @events.each do |event| %>
     <%= render "events/event", event: event %>

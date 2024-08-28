@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       @venues = Venue.where(user_id: current_user.id)
       @events = Event.where(venue_id: @venues.ids)
     elsif @user.role == "act"
-      @events = current_user.events
+      @events = current_user.events.where(is_locked: true)
     end
   end
 
