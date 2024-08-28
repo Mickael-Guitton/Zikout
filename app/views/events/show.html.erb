@@ -2,7 +2,7 @@
   <img src="https://weezevent.com/wp-content/uploads/2018/08/27184514/organiser-un-concert-en-7-etapes.jpg" class="banner-img" >
 </div>
 
-<div class="d-flex">
+<div class=" mt-5 d-flex">
   <%= render "venues/info_venue_show"%>
 
   <div class="col-9 ps-5">
@@ -32,12 +32,10 @@
 
 
     <p><%= @event.description %></p>
-    <%= @event.fr_start_date %>
-    <%= @event.end_date %>
-    <%= console %>
-    <% if current_user == @event.venue.user || current_user.participants.where(event: @event, status: "accepted") %>
+    <p>Débute le : <%= @event.fr_start_date %></p>
+    <p>Termine le : <%= @event.fr_end_date %></p>
+    <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
       <%= render "events/accepted-participants" %>
-
       <% if @event.is_locked %>
         <%= render "dashboard" %>
       <% else %>
