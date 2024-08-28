@@ -6,7 +6,6 @@ export default class extends Controller {
 
   connect() {
     this.hidePopup();
-    console.log("hello")
   }
 
   showPopup() {

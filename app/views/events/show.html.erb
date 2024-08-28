@@ -34,7 +34,6 @@
     <p><%= @event.description %></p>
     <%= @event.fr_start_date %>
     <%= @event.end_date %>
-    <%= console %>
     <% if current_user == @event.venue.user || current_user.participants.where(event: @event, status: "accepted") %>
       <%= render "events/accepted-participants" %>
 
