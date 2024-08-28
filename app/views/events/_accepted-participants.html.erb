@@ -1,6 +1,6 @@
 <% if @participant_accepted %>
-        <div  class="border-custom p-3 mb-4">
-          <h5>Participants acceptés</h5>
+        <div  class="participant-custom">
+          <h5 class="mb-4">Participants acceptés</h5>
           <div class="grid-custom">
             <% @participant_accepted.each do |participant| %>
               <%= link_to profile_path do %>
