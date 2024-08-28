@@ -1,6 +1,6 @@
     <h2><strong><%= @user.name %></strong></h2>
     <h4><%= @user.city %></h4>
-    <h6> <%= @user.styles.join(", ") %> </h6>
+    <h6> Styles </h6>
     <h6> members</h6>
     <%# <ul>
        @user.members.each do |member|
@@ -16,3 +16,5 @@
     <% if @user != current_user %>
       <p>Contact : <%= @user.email %> </p>
     <% end %>
+
+<%# @user.styles.join(", ") %>

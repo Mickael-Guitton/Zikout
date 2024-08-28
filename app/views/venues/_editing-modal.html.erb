@@ -1,0 +1,18 @@
+<!-- app/views/venues/_new_venue_form.html.erb -->
+<div class="modal fade" id="editingVenueModal" tabindex="-1" aria-labelledby="venueModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5"><strong>Modifier le lieu</strong></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "editing-venue-form", venue: @venue %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="button-custom" form="editing_venue_form">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

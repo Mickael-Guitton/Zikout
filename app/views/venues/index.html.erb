@@ -6,7 +6,7 @@
       <div class="filters p-4">
         <h2>Filtres</h2>
         <form action="/venues" method="get">
-          
+
           <div class="form-group">
             <label for="city">Ville</label>
             <input type="text" name="city" id="city" class="form-control">
@@ -26,9 +26,10 @@
         </form>
 
       </div>
+    </div>
 
       <%= render "modal" %>
-    </div>
+
     <div class="col-9 results">
       <h1>Salles proches de chez vous.</h1>
       <% @venues.each do |venue| %>
