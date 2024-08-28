@@ -48,9 +48,17 @@
         <%= f.input :description,
                     label: "Description",
                     input_html: { autocomplete: "Description" }%>
-        <%= f.input :members,
-                    label: "Members",
-                    input_html: { autocomplete: "Members" }%>
+        <h3>Members</h3>
+        <div id="members">
+          <%= f.simple_fields_for :members, OpenStruct.new(@user.members) do |member_form| %>
+            <div class="nested-fields">
+              <%= member_form.input :name %>
+              <%= member_form.input :instrument %>
+              <%= link_to_remove_association "Remove Member", member_form %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to_add_association 'Add Member', f, :members %>
       </div>
 
 

@@ -56,6 +56,7 @@ gem 'datetime_picker_input'
 gem "pg_search"
 gem "actioncable-enhanced-postgresql-adapter"
 gem 'activestorage-cloudinary-service'
+gem "cocoon"
 
 group :development, :test do
   gem "dotenv-rails"

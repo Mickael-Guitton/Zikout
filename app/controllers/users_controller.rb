@@ -1,4 +1,18 @@
 class UsersController < ApplicationController
+  def edit
+    @user = User.find(params[:id])
+    @user.members ||= []
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+
   def profile
     @user = current_user
     if @user.role == "tenant"
@@ -28,6 +42,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :role, :city, :description, :members, :style, :avatar, :banner)
+    params.require(:user).permit(:name, :role, :city, :description, :style, :avatar, :banner, members: [:name, :instrument])
   end
 end
