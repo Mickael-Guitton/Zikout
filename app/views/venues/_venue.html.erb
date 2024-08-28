@@ -1,11 +1,11 @@
 <%= link_to venue_path(venue), :style=>'text-decoration: none; color: inherit' do %>
-  <div class="venue-card">
+  <div class="venue-card my-4">
     <img src="https://s1.dmcdn.net/v/Qt3Dy1TPKjzOA6xuH/x720" class="venue-card_img" >
-    <div class="venue-card_body">
-      <%= venue.name %>
+    <div>
+      <h4 class="my-0 pt-3 ps-3"><%= venue.name %></h4>
       <div class="venue-card_info">
-      <%= venue.full_address %>
-    </div>
+       <p class="pe-3">À <%= venue.city %></p>
+      </div>
   </div>
   </div>
 <% end %>
