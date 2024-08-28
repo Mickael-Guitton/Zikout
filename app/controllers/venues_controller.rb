@@ -4,6 +4,7 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+    @venue = Venue.new
     @user = current_user
   end
 
