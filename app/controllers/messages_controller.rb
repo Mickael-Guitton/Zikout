@@ -9,9 +9,6 @@ class MessagesController < ApplicationController
     @message.user = @user
 
     if @message.save
-      @message.receivers.each do |receiver|
-        Notification.create!(content:"Il y a de nouveaux messages sur #{@message.event}", read: false)
-        NotificationService.notify_user(receiver, "Il y a de nouveaux messages sur #{@message.event}", 'message')
         respond_to do |format|
           format.html { redirect_to event_path(@event) }
         end
