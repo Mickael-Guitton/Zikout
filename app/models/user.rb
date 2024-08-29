@@ -8,11 +8,14 @@ class User < ApplicationRecord
   has_many :venues, dependent: :destroy
   has_many :messages
   has_many :styles
+  has_many :members, dependent: :destroy
+
 
   has_one_attached :avatar
   has_one_attached :banner
 
   ROLES = ["tenant", "act"]
+  PUBLICEMAIL = ["Oui", "Non"]
   DEMANDS = ["Aucunes", "Flexibles", "Strictes"]
 
   validates :role, inclusion: { in: ROLES }

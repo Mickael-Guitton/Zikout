@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_29_131739) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_122923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_131739) do
     t.string "style"
     t.datetime "end_date"
     t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "nickname"
+    t.string "instrument"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -117,7 +126,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_131739) do
     t.string "name"
     t.jsonb "socials", default: {"facebook"=>"", "instagram"=>"", "listen_to_us"=>""}
     t.string "phone"
-    t.jsonb "members", default: [{"nom"=>"", "instrument"=>""}]
     t.text "description"
     t.string "city"
     t.jsonb "styles", default: []
@@ -151,6 +159,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_131739) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "venues"
+  add_foreign_key "members", "users"
   add_foreign_key "messages", "events"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "events"
