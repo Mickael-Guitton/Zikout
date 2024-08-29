@@ -17,7 +17,7 @@
                       as: :string,
                       input_html: { data: { controller: "datepicker" } } %>
           <%= f.label :style, "Style" %><br />
-          <%= f.select :style, User::STYLES %>
+          <%= f.select :style, Style::CONTENTS %>
           <%= f.input :number_of_acts, input_html: { min: 1 } %>
         <% end %>
       </div>
