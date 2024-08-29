@@ -4,10 +4,10 @@
 
 <div class=" mt-5 d-flex">
     <div>
-      <div class="info-sticky mb-4">
+      <div class="info-sticky">
         <%= render "info_venue_show"%>
       <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mt-4">
           <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingVenueModal">
             Modifier
           </button>

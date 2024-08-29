@@ -36,7 +36,10 @@
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <% if user_signed_in? %>
-              <img class="nav-link dropdown-toggle avatar-large border" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src="<%= current_user.avatar %>" />
+              <%# <img class="nav-link dropdown-toggle avatar-large border" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src=<%=current_user.avatar. %>
+                <%= cl_image_tag current_user.avatar.key, class: "nav-link  dropdown-toggle avatar-large login-size ", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" } %>
+
+
             <% else %>
               <i class="fa-regular fa-user nav-link text-warning fs-5 px-2 border border-warning rounded-circle" data-bs-toggle="dropdown" role="button"></i>
             <% end %>
@@ -54,26 +57,7 @@
       </div>
 
 
-      <div id="navbarNavDropdown">
-        <ul class="navbar-nav me-5">
-          <li class="nav-item dropdown">
-            <% if user_signed_in? %>
-              <img class="nav-link dropdown-toggle avatar-large" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src="<%= "https://kitt.lewagon.com/placeholder/users/arthur-littm" %>" />
-            <% else %>
-              <i class="fa-regular fa-user nav-link text-warning fs-5 px-2 border border-warning rounded-circle" data-bs-toggle="dropdown" role="button"></i>
-            <% end %>
-            <ul class="dropdown-menu">
-              <% if user_signed_in? %>
-                <li><%= link_to "Profil", profile_path, class:"dropdown-item" %></li>
-                <li><%= link_to "Disconnect", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %></li>
-              <% else %>
-                <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
-                <li><%= link_to "Sign-up", new_user_registration_path, class:"dropdown-item" %></li>
-              <% end %>
-            </ul>
-          </li>
-        </ul>
-      </div>
+
 
 
     </div>
