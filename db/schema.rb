@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_073513) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,14 +97,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_153941) do
     t.datetime "updated_at", null: false
     t.string "role"
     t.string "name"
-    t.jsonb "socials", default: {}
+    t.jsonb "socials", default: {"facebook"=>"", "instagram"=>"", "listen_to_us"=>""}
     t.string "phone"
-    t.jsonb "members", default: {}
+    t.jsonb "members", default: [{"nom"=>"", "instrument"=>""}]
     t.text "description"
-    t.string "avatar"
-    t.string "banner"
     t.string "city"
     t.jsonb "styles", default: []
+    t.string "demands"
+    t.boolean "public_email", default: false
+    t.string "inspiration"
+    t.string "website"
+    t.jsonb "yt_links", default: []
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

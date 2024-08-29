@@ -56,7 +56,7 @@ gem 'datetime_picker_input'
 gem "pg_search"
 gem "actioncable-enhanced-postgresql-adapter"
 gem 'activestorage-cloudinary-service'
-
+gem 'net-http'
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

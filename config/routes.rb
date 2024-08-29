@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :venues, only: %i[index show new edit]  do
+  resources :venues, only: %i[index show new]  do
     post "events", to: "events#create"
     patch "events/:id", to: "events#update", as: "update_event"
   end
