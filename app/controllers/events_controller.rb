@@ -3,7 +3,16 @@ class EventsController < ApplicationController
   before_action :set_venue, only: %i[new create update]
 
   def index
-    @events = Event.all.sort_by(&:start_date)
+    @events = Event.all
+
+    if params[:city].present?
+      @events = @events.where(venues: { city: params[:city] })
+    end
+    if params[:style].present?
+      @events = @events.where(style: params[:style])
+    end
+
+    @events = @events.order(:start_date)
   end
 
   def show

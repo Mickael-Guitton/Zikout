@@ -23,11 +23,23 @@ class UsersController < ApplicationController
   end
 
   def index
+    if params[:city].present?
+      @acts = User.where(role: "act", city: params[:city])
+      @tenants = User.where(role: "tenant", city: params[:city])
+    end
+    if params[:style].present?
+      @acts = User.where(role: "act", styles: [params[:style]])
+      @tenants = User.where(role: "tenant")
+    end
     @acts = User.where(role: "act")
     @tenants = User.where(role: "tenant")
   end
 
   private
+
+  def set_styles
+    @styles = Style.where(user_id: current_user.id).join(", ")
+  end
 
   def user_params
     params.require(:user).permit(:name, :role, :city, :phone, :description, :demands, :members, :styles, :public_email, :inspiration, :website, :yt_links)

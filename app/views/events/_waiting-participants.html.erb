@@ -1,5 +1,5 @@
 <% if @participant_pending.present? %>
-  <div  class="participant-custom">
+  <div>
     <h5 class="mb-4">Participants en attente</h5>
     <div class="grid-custom">
       <% @participant_pending.each do |participant| %>
@@ -11,7 +11,7 @@
 <% end %>
 
 <% if @participant_declined.present? %>
-  <div  class="participant-custom">
+  <div>
   <h5 class="mb-4">Participants refusés</h5>
   <div class="grid-custom">
     <% @participant_declined.each do |participant| %>
