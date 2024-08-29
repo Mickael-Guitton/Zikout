@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_28_075213) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_073513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,18 +66,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_075213) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "content"
-    t.boolean "read"
-    t.string "notification_type"
-    t.bigint "event_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_notifications_on_event_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
-  end
-
   create_table "participants", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -107,14 +95,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_075213) do
     t.datetime "updated_at", null: false
     t.string "role"
     t.string "name"
-    t.jsonb "socials", default: {}
+    t.jsonb "socials", default: {"facebook"=>"", "instagram"=>"", "listen_to_us"=>""}
     t.string "phone"
-    t.jsonb "members", default: {}
+    t.jsonb "members", default: [{"nom"=>"", "instrument"=>""}]
     t.text "description"
-    t.string "avatar"
-    t.string "banner"
     t.string "city"
     t.jsonb "styles", default: []
+    t.string "demands"
+    t.boolean "public_email", default: false
+    t.string "inspiration"
+    t.string "website"
+    t.jsonb "yt_links", default: []
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -142,8 +133,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_075213) do
   add_foreign_key "events", "venues"
   add_foreign_key "messages", "events"
   add_foreign_key "messages", "users"
-  add_foreign_key "notifications", "events"
-  add_foreign_key "notifications", "users"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
   add_foreign_key "venues", "users"

@@ -31,15 +31,14 @@ puts "Creating fake acts..."
 styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 
 10.times do
-    file = URI.open(Faker::Avatar.image(slug: "my-own-slug"))
-    user = User.new(
+  file = URI.open(Faker::Avatar.image(slug: "my-own-slug"))
+  user = User.new(
     role: "act",
     email: Faker::Internet.email,
     password: "azerty1234",
     name: Faker::Company.name,
-    styles: rand(1..3).times do
-              styles.sample
-            end,
+    styles: styles.sample,
+    members: [{ nom: Faker::Name.name, instrument: Faker::Music.instrument }],
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city,
   )
@@ -53,7 +52,6 @@ tenants = User.where(role: "tenant")
 scene = ["very-small", "small", "medium", "large", "extra-large"]
 capacity = (30..500).to_a
 paying = ["yes", "no"]
-
 
 tenants.each do |tenant|
   Venue.create!(
