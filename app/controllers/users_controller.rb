@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     elsif @user.role == "act"
       @events = current_user.events.where(is_locked: true)
       @member = Member.new
+      @style = Style.new
     end
   end
 

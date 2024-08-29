@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     patch "venues/:id", to: "venues#update", as: "update_venue"
     member do
       post "members", to: "members#create"
+      post "styles", to: "styles#create"
     end
   end
 

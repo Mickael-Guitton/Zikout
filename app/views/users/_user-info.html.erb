@@ -1,12 +1,13 @@
 <h2><%= @user.name %></h2>
 <h4><%= @user.city %></h4>
 <% if @user.styles && @user.act? %>
-  <% if @user.styles %>
-    <h6> Style : <%= @user.styles %><h6>
-  <% else %>
-    <h6> Styles : <%= @user.styles.join(", ") %></h6>
+  <ul>
+  <% @user.styles.each do |style| %>
+    <li><%= style[:content] %></li>
   <% end %>
+  </ul>
 <% end %>
+
 <% if @user.members && @user.act? %>
   <h4>Membres :</h4>
   <ul>
@@ -15,39 +16,7 @@
     <% end %>
   </ul>
 <% end %>
-<% if current_user == @user && @user.role == "act" %>
-  <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#memberModal">
-          Ajouter Membre
-        </button>
-<% end %>
- <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title fs-5"><strong>Ajouter Membre</strong></h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= form_with(model: [@user, @member], url: members_user_path(@user), method: :post) do |f| %>
-              <div class="form-group">
-                <%= f.label :nickname, "Nom du membre" %>
-                <%= f.text_field :nickname, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :instrument, "Instrument(s)" %>
-                <%= f.text_field :instrument, class: "form-control" %>
-              </div>
-              <div class="d-flex mt-3 justify-content-between">
-            <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
-              <%= f.submit "Ajouter", class: "button-custom" %>
-          </div>
-            <% end %>
 
-          </div>
-
-        </div>
-      </div>
-    </div>
 
 <ul class="d-flex mb- 0 list-unstyled">
     <% if @user.instagram.present? %>

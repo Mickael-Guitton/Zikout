@@ -115,7 +115,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_131739) do
     t.string "phone"
     t.text "description"
     t.string "city"
-    t.jsonb "styles", default: []
     t.string "demands"
     t.boolean "public_email", default: false
     t.string "inspiration"
