@@ -28,7 +28,6 @@ end
 
 puts "Creating fake acts..."
 
-styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 
 10.times do
   file = URI.open(Faker::Avatar.image(slug: "my-own-slug"))
@@ -38,13 +37,18 @@ styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic
     password: "azerty1234",
     name: Faker::Company.name,
     demands: User::DEMANDS.sample,
-    styles: styles.sample,
     members: [{ nom: Faker::Name.name, instrument: Faker::Music.instrument }],
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city
   )
   user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
   user.save
+end
+
+User.all.each do |user|
+  3.times do
+    Style.create!(content: Style::CONTENTS.sample, user_id: user.id)
+  end
 end
 
 puts "Creating fake venues..."
