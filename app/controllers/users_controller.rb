@@ -29,6 +29,10 @@ class UsersController < ApplicationController
 
   private
 
+  def set_styles
+    @styles = Style.where(user_id: current_user.id).join(", ")
+  end
+
   def user_params
     params.require(:user).permit(:name, :role, :city, :phone, :description, :demands, :members, :styles, :public_email, :inspiration, :website, :yt_links)
   end

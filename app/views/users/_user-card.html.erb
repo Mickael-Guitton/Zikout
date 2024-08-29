@@ -4,6 +4,8 @@
     <%= image_tag user.avatar, class: "user-card-avatar" %>
     </div>
     <h2><%= user.name %></h2>
-    <p><%= user.styles %></p>
+    <% user.styles.each do |style| %>
+      <span><%= style.content %></span>
+    <% end %>
   </div>
 <% end %>
