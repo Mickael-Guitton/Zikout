@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
         respond_to do |format|
           format.html { redirect_to event_path(@event) }
         end
-      end
     else
       render "events/show", status: :unprocessable_entity
     end
