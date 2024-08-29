@@ -4,6 +4,11 @@
     <%= image_tag user.avatar, class: "user-card-avatar" %>
     </div>
     <h2><%= user.name %></h2>
-    <p><%= user.styles %></p>
+
+    <% if user.act? %>
+      <p><%= Style.where(user: user.id).map { |style| style[:content] }.join(", ") %></p>
+    <% else %>
+      <p><strong><%= user.city %></strong></p>
+    <% end %>
   </div>
 <% end %>

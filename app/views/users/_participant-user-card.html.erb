@@ -6,7 +6,7 @@
       </div>
 
       <h2><%= participant.user.name %></h2>
-      <p><%= participant.user.styles %></p>
+      <p><%= Style.where(user: participant.user.id).map { |style| style[:content] }.join(", ") %></p>
 
       <% if participant.status == "pending"%>
         <div class="d-flex justify-content-around px-2">

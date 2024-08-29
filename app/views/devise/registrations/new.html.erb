@@ -33,15 +33,7 @@
 
 <!-- =========================== HIDDEN ACT FORM =========================== -->
       <div data-role-target="actForm" style="display: none;">
-        <div class="field">
-          <%= f.label :styles, "Styles" %><br />
-          <%= f.collection_check_boxes :styles, User::STYLES, :to_s, :to_s do |b| %>
-            <div class="checkbox">
-              <%= b.check_box %>
-              <%= b.label %>
-            </div>
-          <% end %>
-        </div>
+
         <%= f.input :description,
                     label: "Description",
                     input_html: { autocomplete: "Description" }%>
