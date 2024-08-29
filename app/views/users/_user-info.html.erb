@@ -1,7 +1,7 @@
 <h2><%= @user.name %></h2>
 <h4><%= @user.city %></h4>
 <% if @user.styles && @user.act? %>
-  <ul>
+  <ul class="list-unstyled">
   <% @user.styles.each do |style| %>
     <li><%= style[:content] %></li>
   <% end %>
@@ -10,7 +10,7 @@
 
 <% if @user.members && @user.act? %>
   <h4>Membres :</h4>
-  <ul>
+  <ul class="list-unstyled">
     <% @user.members.each do |m| %>
       <li> <%= m[:nickname] %> : <%= m[:instrument] %> </li>
     <% end %>
