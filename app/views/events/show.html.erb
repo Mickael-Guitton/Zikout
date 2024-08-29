@@ -3,7 +3,21 @@
 </div>
 
 <div class=" mt-5 d-flex">
-  <%= render "venues/info_venue_show"%>
+  <div>
+    <div class=" mb-3">
+      <%= render "venues/info_venue_show"%>
+    </div>
+    <% if current_user == @venue_owner %>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingEventModal">
+          Modifier
+        </button>
+        <button class="button-custom"> <%= link_to "Supprimer", event_path(@event),
+          data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"} %>
+        </button>
+      </div>
+    <% end %>
+  </div>
 
   <div class="col-9 ps-5">
     <div class="d-flex justify-content-between align-items-center">
@@ -28,14 +42,6 @@
           <%= button_to "Supprimer Event", event_path(@event), method: :delete, class: "button-custom", data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer votre Event ?" } %>
       <% end %>
     </div>
-    <% if current_user == @venue_owner %>
-      <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingEventModal">
-        Modifier l'évènement
-      </button>
-      <button class="button-custom"> <%= link_to "Supprimer l'évènement", event_path(@event),
-        data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"} %>
-      </button>
-    <% end %>
 
     <!-- Form in a bootstrap modal -->
     <%= render "editing-event-form" %>
@@ -45,7 +51,7 @@
       <p>au <%= @event.fr_end_date %></p>
     </div>
 
-    <p><%= @event.description %></p>
+    <p class="fw-light"><%= @event.description %></p>
 
     <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
       <%= render "events/accepted-participants" %>
