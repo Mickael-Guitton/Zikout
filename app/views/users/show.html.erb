@@ -3,13 +3,12 @@
   <%= image_tag(@user.avatar, class: "banner-avatar", alt: "Photo de profil de #{@user.name}") %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="user-info col-3 border-custom">
-      <%= render "user-info" %>
-    </div>
-    <div class="user-content col-9">
-      <%= render "user-content" %>
-    </div>
+
+<div class="d-flex mt-5">
+  <div class="col-3 p-3 user-info mt-3">
+    <%= render "user-info" %>
+  </div>
+  <div class="user-content col-9 ps-5 mt-3">
+    <%= render "user-content" %>
   </div>
 </div>

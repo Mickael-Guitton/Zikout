@@ -30,9 +30,9 @@ a {
 
   .banner-avatar {
     position: absolute;
-    top: calc(50%);
-    left: calc(40%);
-    width: 20%;
+    top: calc(62%);
+    left: calc(41%);
+    width: 18%;
     border: 1px solid white;
     border-radius: 50%;
   }
@@ -41,4 +41,10 @@ a {
 
 .results {
   width: 934px;
+}
+
+hr {
+  width: 80%;
+  margin: 40px auto 20px auto;
+  color: #ec7b00;
 }
