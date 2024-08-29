@@ -12,7 +12,9 @@ class User < ApplicationRecord
   has_one_attached :banner
 
   ROLES = ["tenant", "act"]
-  STYLES = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
+  DEMANDS = ["Aucunes", "Flexibles", "Strictes"]
+  STYLES = ["Jazz", "Pop", "Rock", "Classical", "Folk", "BBlues", "World", "Electronic", "Hip-hop", "Metal", "Reggae", "Punk", "Soul", "Funk", "Country", "Latin", "Other"]
+
   validates :role, inclusion: { in: ROLES }
   validates :name, presence: true
   validates :city, presence: true
@@ -22,7 +24,7 @@ class User < ApplicationRecord
 
   if :role == "act"
     validates :description, presence: true
-    validates :members, presence: true
+    validates :demands, presence: true
   end
 
   def act?
@@ -33,8 +35,10 @@ class User < ApplicationRecord
 
   def placeholder_avatar
     unless avatar.attached?
-      placeholder_avatar_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724848294/fake_avatar_tgfni6.jpg'
-      avatar.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_avatar_url)), filename: 'avatar-placeholder.jpg', content_type: 'image/jpeg')
+      # placeholder_avatar_url = 'https://res.cloudinary.com/dnxamyssu/image/upload/v1724848294/fake_avatar_tgfni6.jpg'
+      # avatar.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_avatar_url)), filename: 'avatar-placeholder.jpg', content_type: 'image/jpeg')
+      file = URI.open("https://res.cloudinary.com/dnxamyssu/image/upload/v1724924965/fake_avatar_hetee3.jpg")
+      avatar.attach(io: file, filename: "avatar-placeholder.jpg", content_type: "image/png")
     end
   end
 
@@ -44,4 +48,7 @@ class User < ApplicationRecord
       banner.attach(io: StringIO.new(Cloudinary::Downloader.download(placeholder_banner_url)), filename: 'banner-placeholder.jpg', content_type: 'image/jpeg')
     end
   end
+
+  require "open-uri"
+
 end

@@ -37,10 +37,11 @@ styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic
     email: Faker::Internet.email,
     password: "azerty1234",
     name: Faker::Company.name,
+    demands: User::DEMANDS.sample,
     styles: styles.sample,
     members: [{ nom: Faker::Name.name, instrument: Faker::Music.instrument }],
     description: Faker::Lorem.paragraph,
-    city: Faker::Address.city,
+    city: Faker::Address.city
   )
   user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
   user.save
