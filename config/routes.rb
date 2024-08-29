@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show] do
     post "venues", to: "venues#create"
     patch "venues/:id", to: "venues#update", as: "update_venue"
+    member do
+      post "members", to: "members#create"
+    end
   end
 
   get "index", to: "users#index"
