@@ -49,6 +49,6 @@
     <% end %>
     </ul>
 </ul>
-<% if @user != current_user %>
+<% if @user.public_email == true %>
   <p>Contact : <%= @user.email %> </p>
 <% end %>
