@@ -8,8 +8,13 @@
   margin-bottom: 30px;
   text-align: center;
 
-  h4 {
-    margin: 65px 10px 30px 10px;
+  h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 65px 10px 40px 10px;
     font-size: medium;
     font-weight: bolder;
   }
@@ -57,7 +62,12 @@
   margin-bottom: 30px;
   text-align: center;
 
-  h4 {
+  h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 65px 10px 20px 10px;
     font-size: medium;
     font-weight: bolder;
