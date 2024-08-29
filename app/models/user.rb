@@ -7,13 +7,13 @@ class User < ApplicationRecord
   has_many :events, through: :participants
   has_many :venues, dependent: :destroy
   has_many :messages
+  has_many :styles
 
   has_one_attached :avatar
   has_one_attached :banner
 
   ROLES = ["tenant", "act"]
   DEMANDS = ["Aucunes", "Flexibles", "Strictes"]
-  STYLES = ["Jazz", "Pop", "Rock", "Classical", "Folk", "BBlues", "World", "Electronic", "Hip-hop", "Metal", "Reggae", "Punk", "Soul", "Funk", "Country", "Latin", "Other"]
 
   validates :role, inclusion: { in: ROLES }
   validates :name, presence: true
