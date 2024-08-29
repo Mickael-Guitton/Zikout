@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       @events = Event.where(venue_id: @venues.ids)
     elsif @user.role == "act"
       @events = current_user.events.where(is_locked: true)
+      @member = Member.new
     end
   end
 
