@@ -37,13 +37,25 @@ puts "Creating fake acts..."
     password: "azerty1234",
     name: Faker::Company.name,
     demands: User::DEMANDS.sample,
-    members: [{ nom: Faker::Name.name, instrument: Faker::Music.instrument }],
     description: Faker::Lorem.paragraph,
     city: Faker::Address.city
   )
   user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
   user.save
 end
+
+
+puts "Creating fake members..."
+instruments = ["guitar", "bass", "drums", "vocals", "keyboard", "saxophone", "trumpet", "trombone", "violin", "cello", "flute", "clarinet", "harp", "accordion", "banjo", "mandolin", "harmonica", "percussion", "other"]
+
+acts = User.where(role: "act")
+acts.each do |act|
+  3.times do
+    Member.create!(
+      nickname: Faker::Name.first_name,
+      instrument: instruments.sample,
+      user_id: act.id
+    )
 
 User.all.each do |user|
   3.times do
