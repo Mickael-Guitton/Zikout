@@ -75,6 +75,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_122923) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.boolean "read"
+    t.string "notification_type"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_notifications_on_event_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "participants", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,6 +104,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_122923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_styles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -144,7 +164,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_122923) do
   add_foreign_key "members", "users"
   add_foreign_key "messages", "events"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "events"
+  add_foreign_key "notifications", "users"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
+  add_foreign_key "styles", "users"
   add_foreign_key "venues", "users"
 end
