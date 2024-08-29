@@ -15,13 +15,10 @@
       <%= f.input :city,
                   label: "ville",
                   required: true,
-                  input_html: { autocomplete: "ville" }%>
+                  input_html: { autocomplete: "Ville" }%>
       <%= f.input :phone,
                   label: "Téléphone",
                   input_html: { autocomplete: "Téléphone" }%>
-      <%= f.input :socials,
-                  label: "Réseaux sociaux",
-                  input_html: { autocomplete: "Réseaux sociaux" }%>
 
 <!-- ========================= HIDDEN TENANT FORM ========================== -->
       <div data-role-target="tenantForm" style="display: none;">
@@ -48,11 +45,11 @@
         <%= f.input :description,
                     label: "Description",
                     input_html: { autocomplete: "Description" }%>
-        <%= f.input :members,
-                    label: "Members",
-                    input_html: { autocomplete: "Members" }%>
+        <%= f.input :inspiration,
+                    label: "Inspirations" %>
+        <%= f.label :demands, "Demandes:" %>
+        <%= f.select :demands, User::DEMANDS %>
       </div>
-
 
       <%= f.input :email,
                   required: true,
@@ -67,7 +64,7 @@
       <%= f.input :avatar, as: :file %>
       <%= f.input :banner, as: :file %>
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", class: "button-custom" %>
       </div>
     </div>
   </div>
