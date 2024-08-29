@@ -29,13 +29,23 @@
       <% end %>
 
     </div>
+    <% if current_user == @venue_owner %>
+      <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingEventModal">
+        Modifier l'évènement
+      </button>
+      <button class="button-custom"> <%= link_to "Supprimer l'évènement", event_path(@event),
+        data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"} %>
+      </button>
+    <% end %>
 
+    <!-- Form in a bootstrap modal -->
+    <%= render "editing-event-form" %>
 
     <p><%= @event.description %></p>
 
     <p>Débute le : <%= @event.fr_start_date %></p>
     <p>Termine le : <%= @event.fr_end_date %></p>
-    
+
     <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
       <%= render "events/accepted-participants" %>
       <% if @event.is_locked %>
