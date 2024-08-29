@@ -53,15 +53,21 @@
 
     <p class="fw-light"><%= @event.description %></p>
 
-    <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
-     <% if @participant_accepted.present? %>
-      <%= render "events/accepted-participants" %>
+    <% if current_user == @event.venue.user %>
+      <% if @participant_accepted.present? %>
+        <%= render "events/accepted-participants" %>
       <% end %>
       <% if @event.is_locked %>
         <%= render "dashboard" %>
       <% else %>
         <%= render "events/waiting-participants" %>
       <% end %>
+    <% elsif current_user.participants.where(params[:event]).where(status: "accepted") %>
+      <%= render "events/accepted-participants" %>
+      <% if @event.is_locked %>
+        <%= render "dashboard" %>
+      <% end %>
     <% end %>
+    <%= console %>
   </div>
 </div>
