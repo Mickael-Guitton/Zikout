@@ -2,19 +2,19 @@
   <h2 class="mb-4"><%= @venue.name %></h2>
   <p>Lieu:  <%= @venue.city %></p>
   <p>Capacité:  <%= @venue.capacity %></p>
-  <p>Taille de scène:  <%= @venue.scene_size %></p>
+  <p>Scène:  <%= @venue.scene_size %></p>
   <p>Loge:  <%= @venue.lodging %></p>
   <p>Rémunération:  <%= @venue.paying %></p>
-  <p><%= @venue.description %></p>
+  <p class="fw-light"><%= @venue.description %></p>
     <ul class="d-flex mb- 0 list-unstyled">
-      <li>
+      <li class="me-2">
         <%= link_to "#", class: "navbar-brand me-4" do %>
-          <%= image_tag "reseau.svg", alt: "Réseau"%>
+          <%= image_tag "icon_insta.svg", alt: "Insta"%>
         <% end %>
       </li>
-      <li>
+      <li class="me-2">
         <%= link_to "#", class: "navbar-brand me-4" do %>
-          <%= image_tag "reseau.svg", alt: "Réseau"%>
+          <%= image_tag "icon_facebook.svg", alt: "Facebook"%>
         <% end %>
       </li>
     </ul>

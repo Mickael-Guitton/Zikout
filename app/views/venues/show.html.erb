@@ -8,9 +8,14 @@
         <%= render "info_venue_show"%>
       </div>
       <% if current_user.role == "tenant" && current_user.venues.include?(@venue) %>
-        <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingVenueModal">
-          Modifier le lieu
-        </button>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingVenueModal">
+            Modifier
+          </button>
+          <button class="button-custom"> <%= link_to "Supprimer", venue_path(@venue),
+            data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"} %>
+          </button>
+        </div>
       <% end %>
     </div>
 
@@ -24,7 +29,7 @@
       <% end %>
     </div>
     <h4 class="fs-5 mb-3"><%= @venue.category %></h4>
-    <p><%= @venue.description %></p>
+    <p class="fw-light"><%= @venue.description %></p>
 
     <%= render "editing-modal" %>
 

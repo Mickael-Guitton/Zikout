@@ -37,4 +37,5 @@ class Venue < ApplicationRecord
   def full_address
     "#{street}, #{city}, #{zipcode} #{country}"
   end
+
 end

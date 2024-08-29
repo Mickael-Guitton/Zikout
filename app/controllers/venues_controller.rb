@@ -46,6 +46,12 @@ class VenuesController < ApplicationController
     end
   end
 
+  def destroy
+    @venue = Venue.find(params[:id])
+    @venue.destroy
+    redirect_to profile_path, notice: "L'établissement a bien été supprimé"
+  end
+
   private
 
   def set_user
