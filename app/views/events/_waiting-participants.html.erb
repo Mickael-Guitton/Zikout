@@ -1,25 +1,23 @@
-<% if @participant_pending %>
+<% if @participant_pending.present? %>
   <div  class="participant-custom">
     <h5 class="mb-4">Participants en attente</h5>
     <div class="grid-custom">
       <% @participant_pending.each do |participant| %>
-        <%= link_to profile_path do %>
           <%= render "users/participant-user-card", participant: participant %>
-        <% end %>
       <% end %>
     </div>
+    <hr>
   </div>
 <% end %>
 
-<% if @participant_declined %>
+<% if @participant_declined.present? %>
   <div  class="participant-custom">
   <h5 class="mb-4">Participants refusés</h5>
   <div class="grid-custom">
     <% @participant_declined.each do |participant| %>
-      <%= link_to profile_path do %>
         <%= render "users/participant-user-card", participant: participant %>
-      <% end %>
     <% end %>
   </div>
+  <hr>
 </div>
 <% end %>

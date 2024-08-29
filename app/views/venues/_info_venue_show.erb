@@ -1,19 +1,19 @@
 <div class="col-3 info-venue p-3">
-  <h2 class="mb-4"><%= @venue.name %></h2>
-  <p>Lieu:  <%= @venue.city %></p>
-  <p>Capacité:  <%= @venue.capacity %></p>
-  <p>Scène:  <%= @venue.scene_size %></p>
-  <p>Loge:  <%= @venue.lodging %></p>
-  <p>Rémunération:  <%= @venue.paying %></p>
-  <p class="fw-light"><%= @venue.description %></p>
+  <h2 class="mb-2 fs-4"><%= @venue.name %></h2>
+  <p class="mb-4">( <%= @venue.city %> )</p>
+  <p><strong>Capacité :</strong>  <%= @venue.capacity %> personnes</p>
+  <p><strong>Scène :</strong>  <%= @venue.scene_size %></p>
+  <p><strong>Loge :</strong>  <%= @venue.lodging %></p>
+  <p class="mb-4"><strong>Rémunération :</strong>  <%= @venue.paying %></p>
+  <p class="fw-light mb-4"><%= @venue.description %></p>
     <ul class="d-flex mb- 0 list-unstyled">
       <li class="me-2">
-        <%= link_to "#", class: "navbar-brand me-4" do %>
-          <%= image_tag "icon_insta.svg", alt: "Insta"%>
+        <%= link_to "#", class: "me-4" do %>
+          <%= image_tag "icon_insta.svg", alt: "Instagram"%>
         <% end %>
       </li>
       <li class="me-2">
-        <%= link_to "#", class: "navbar-brand me-4" do %>
+        <%= link_to "#", class: "me-4" do %>
           <%= image_tag "icon_facebook.svg", alt: "Facebook"%>
         <% end %>
       </li>

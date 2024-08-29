@@ -47,14 +47,16 @@
     <%= render "editing-event-form" %>
 
     <div class="d-flex">
-      <p class="me-1">Du <%= @event.fr_start_date %>,</p>
+      <p class="me-1 fst-italic">Du <%= @event.fr_start_date %>,</p>
       <p>au <%= @event.fr_end_date %></p>
     </div>
 
     <p class="fw-light"><%= @event.description %></p>
 
     <% if current_user == @event.venue.user || @participant_accepted.include?(current_user) %>
+     <% if @participant_accepted.present? %>
       <%= render "events/accepted-participants" %>
+      <% end %>
       <% if @event.is_locked %>
         <%= render "dashboard" %>
       <% else %>

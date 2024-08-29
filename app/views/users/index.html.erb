@@ -29,8 +29,9 @@
         <% end %>
       </div>
     </div>
+    <hr />
     <div>
-      <h4 class="my-4">Groupe et musiciens</h4>
+      <h4 class="mt-5 mb-4">Groupe et musiciens</h4>
       <div class="grid-custom">
         <% @acts.each do |user| %>
           <%= render "user-card", user: user %>
@@ -48,8 +49,9 @@
         <% end %>
       </div>
     </div>
+    <hr />
     <div>
-      <h4 class="my-4">Organisateur</h4>
+      <h4 class="mt-5 mb-4">Organisateur</h4>
       <div class="grid-custom">
         <% @tenants.each do |user| %>
           <%= render "user-card", user: user %>
