@@ -14,8 +14,8 @@
           <%= link_to "Décliner", decline_path(participant), class:"button-card",  data: {turbo_method: :patch} %>
         </div>
       <% elsif participant.status == "accepted" || participant.status == "declined" %>
-        <div>
-          <%= link_to "Annuler", set_to_pending_path(participant), class:"button-card",  data: {turbo_method: :patch} %>
+        <div class="mb-3 cancel-button-card m-auto">
+          <%= link_to "Annuler", set_to_pending_path(participant), class:"cancel-button-card" , data: {turbo_method: :patch} %>
         </div>
       <% end %>
     <% end %>
