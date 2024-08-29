@@ -9,6 +9,7 @@ class AddDetailsToUsers < ActiveRecord::Migration[7.1]
     remove_column :users, :banner
     change_column :users, :members, :jsonb, default: [{ nom: "", instrument: "" }]
     remove_column :users, :socials
+    remove_column :users, :styles
     add_column :users, :facebook, :string
     add_column :users, :instagram, :string
     add_column :users, :listen_to_us, :string
