@@ -1,11 +1,11 @@
 class VenuesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[create update]
+  before_action :set_user, only: %i[new create update]
 
   def index
+    @user = current_user
     @venues = Venue.all
     @venue = Venue.new
-    @user = current_user
   end
 
   def new

@@ -3,7 +3,7 @@
     <%= image_tag(current_user.banner, class: "my-user-card_banner") %>
     <%= image_tag(current_user.avatar, class: "my-user-card_avatar") %>
     <h2 class="fs-4 mt-4 mb-2"><%= current_user.name %></h2>
-    <p class="mb-4 fst-italic">Rock / Progressif</p>
+    <p class="mb-4 fst-italic"><%=current_user.email%></p>
     <p class="text-uppercase">(<%= current_user.city %>)</p>
   </div>
 <% end %>

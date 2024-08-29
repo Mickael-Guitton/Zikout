@@ -1,4 +1,3 @@
-
 <%= simple_form_for [@user, venue], url: user_venues_path(@user), html: { id: :new_venue_form} do |f| %>
   <%= f.input :name, label: "nom de l'établissement:" %>
   <%= f.label :category, "Catégorie:" %>
@@ -12,6 +11,6 @@
   <%= f.input :lodging, label: "Votre établissement comprend-t-il des loges?" %>
   <%= f.input :paying, label: "Prévoyez-vous une rémunération pour les artistes?" %>
   <%= f.input :capacity, label: "Quelle est la capacité d'accueil de votre établissement?" %>
-  <%= f.label :scene_size, label: "Taille approximative de la scène:" %>
+  <%= f.label :scene_size, "Taille approximative de la scène:" %>
   <%= f.select :scene_size, Venue::SCENE_SIZE %>
 <% end %>
