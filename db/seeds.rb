@@ -56,6 +56,8 @@ acts.each do |act|
       instrument: instruments.sample,
       user_id: act.id
     )
+  end
+end
 
 User.all.each do |user|
   3.times do
