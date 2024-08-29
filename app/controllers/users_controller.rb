@@ -23,6 +23,14 @@ class UsersController < ApplicationController
   end
 
   def index
+    if params[:city].present?
+      @acts = User.where(role: "act", city: params[:city])
+      @tenants = User.where(role: "tenant", city: params[:city])
+    end
+    if params[:style].present?
+      @acts = User.where(role: "act", styles: [params[:style]])
+      @tenants = User.where(role: "tenant")
+    end
     @acts = User.where(role: "act")
     @tenants = User.where(role: "tenant")
   end

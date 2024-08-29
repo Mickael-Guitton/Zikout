@@ -6,6 +6,12 @@ class VenuesController < ApplicationController
     @user = current_user
     @venues = Venue.all
     @venue = Venue.new
+
+    if params[:city].present?
+      @venues = @venues.where(city: params[:city])
+    elsif params[:category].present?
+      @venues = @venues.where(category: params[:category])
+    end
   end
 
   def new
