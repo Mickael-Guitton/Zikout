@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_venue, only: %i[new create]
+  before_action :set_venue, only: %i[new create update]
 
   def index
     @events = Event.all.sort_by(&:start_date)
@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @venue = @event.venue
+    @venue_owner = @venue.user
     @participants = Participant.where(event: @event.id)
     @participant_accepted = @participants.where(status: "accepted")
     @participant_pending = @participants.where(status: "pending")
@@ -28,6 +29,24 @@ class EventsController < ApplicationController
     end
   end
 
+  def venue_owner
+    venue.user
+  end
+
+  def edit
+    @venue = Venue.find(params[:venue_id])
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = @venue.events.find(params[:id])
+    if @event.update(event_params)
+      redirect_to @event, notice: "L'évènement a bien été mis à jour"
+    else
+      redirect_to venue_path(@event.venue), notice: "L'évènement n'a pas été mis à jour"
+    end
+  end
+
   def lock_event
     @event = Event.find(params[:id])
     @event.update!(is_locked: true)
@@ -37,7 +56,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path
+    redirect_to events_path, notice: "L'évènement a bien été supprimé"
   end
 
   private

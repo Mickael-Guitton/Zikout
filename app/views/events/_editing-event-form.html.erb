@@ -1,0 +1,30 @@
+<div class="modal fade" id="editingEventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5"><strong>Modifier l'évènement</strong></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@venue, @event], url: venue_update_event_path(@venue), html: { id: :editing_event_form} do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description, as: :text, input_html: {rows: 4} %>
+          <%# <%= f.label :start_date %>
+          <%= f.input :start_date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
+          <%= f.label :style, "Style" %><br />
+          <%= f.select :style, User::STYLES %>
+          <%= f.input :number_of_acts, input_html: { min: 1 } %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="button-custom" form="editing_event_form">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

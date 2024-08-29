@@ -11,6 +11,9 @@
         <button type="button" class="button-custom" data-bs-toggle="modal" data-bs-target="#editingVenueModal">
           Modifier le lieu
         </button>
+        <button class="button-custom"> <%= link_to "Supprimer ce lieu", venue_path(@venue),
+          data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"} %>
+        </button>
       <% end %>
     </div>
 
