@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_venue, only: %i[new create update]
 
   def index
-    @events = Event.all
+    @events = Event.where(is_locked: false)
 
     if params[:city].present?
       @events = @events.where(venues: { city: params[:city] })
