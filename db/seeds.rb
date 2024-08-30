@@ -46,7 +46,7 @@ end
 
 
 puts "Creating fake members..."
-instruments = ["guitar", "bass", "drums", "vocals", "keyboard", "saxophone", "trumpet", "trombone", "violin", "cello", "flute", "clarinet", "harp", "accordion", "banjo", "mandolin", "harmonica", "percussion", "other"]
+instruments = ["guitare", "basse", "batterie", "chant", "clavier", "saxophone", "trompette", "trombone", "violon", "violoncelle", "flûte", "clarinette", "harpe", "accordéon", "banjo", "mandoline", "harmonica", "percussions"]
 
 acts = User.where(role: "act")
 acts.each do |act|
@@ -68,9 +68,9 @@ end
 puts "Creating fake venues..."
 
 tenants = User.where(role: "tenant")
-scene = ["very-small", "small", "medium", "large", "extra-large"]
+scene = ["très petite - 2m² à 6m²", "petite - 7m² à 14m²", "moyenne - 15m² à 24m²", "grande - 25m² à 35m²", "très grande - 36m² et plus"]
 capacity = (30..500).to_a
-paying = ["yes", "no"]
+paying = ["oui", "non"]
 
 tenants.each do |tenant|
   Venue.create!(
@@ -81,7 +81,7 @@ tenants.each do |tenant|
     country: Faker::Address.country,
     description: Faker::Lorem.paragraph,
     category: Venue::CATEGORIES.sample,
-    lodging: "yes" || "no",
+    lodging: "oui" || "non",
     scene_size: scene.sample,
     paying: paying.sample,
     capacity: capacity.sample,
@@ -91,7 +91,7 @@ end
 
 puts "Creating fake events..."
 venues = Venue.all
-styles = ["jazz", "pop-rock", "classical", "folk", "blues", "world", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
+styles = ["jazz", "pop-rock", "classique", "folk", "blues", "electronic", "hip-hop", "metal", "reggae", "punk", "soul", "funk", "country", "latin", "other"]
 venues.each do |venue|
   Event.create!(
     name: Faker::Music.album,

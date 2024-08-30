@@ -1,14 +1,17 @@
 <%= link_to profile_path, :style=>'text-decoration: none; color: inherit' do %>
   <div class="my-user-card text-center d-flex flex-column align-items-center">
-
+    
     <%= cl_image_tag current_user.banner.key, class: "my-user-card_banner" %>
     <%= cl_image_tag current_user.avatar.key, class: "my-user-card_avatar" %>
 
-
     <h2 class="fs-5 mb-2"><%= current_user.name %></h2>
-    <% if current_user.act? %>
-      <p class="mb-4 fst-italic"> <%= Style.where(user: current_user.id).map { |style| style[:content] }.join(", ") %></p>
+
+    <% if current_user.role == "tenant" %>
+      <p class="mb-4 fst-italic">Organisateur</p>
+    <% elsif current_user.role == "act" %>
+      <p class="mb-4 fst-italic">Musicien/Groupe</p>
     <% end %>
+
     <p class="text-uppercase">(<%= current_user.city %>)</p>
   </div>
 <% end %>

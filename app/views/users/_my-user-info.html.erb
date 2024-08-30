@@ -28,7 +28,7 @@
                   <%= f.text_field :content, class: "form-control" %>
                 </div>
                 <div class="d-flex mt-3 justify-content-between">
-              <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="closing-button" data-bs-dismiss="modal">Annuler</button>
                 <%= f.submit "Ajouter", class: "button-custom" %>
             </div>
               <% end %>
@@ -41,7 +41,7 @@
 <% end %>
 
 <% if @user.members && @user.act? %>
-  <h4>Membres :</h4>
+  <h4>Membres:</h4>
   <ul class="list-unstyled">
     <% @user.members.each do |m| %>
       <li> <%= m[:nickname] %> : <%= m[:instrument] %> </li>
@@ -71,7 +71,7 @@
                 <%= f.text_field :instrument, class: "form-control" %>
               </div>
               <div class="d-flex mt-3 justify-content-between">
-            <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="closing-button" data-bs-dismiss="modal">Annuler</button>
               <%= f.submit "Ajouter", class: "button-custom" %>
           </div>
             <% end %>
@@ -102,3 +102,4 @@
     <% end %>
   </li>
 </ul>
+

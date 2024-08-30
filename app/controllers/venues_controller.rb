@@ -48,7 +48,7 @@ class VenuesController < ApplicationController
     if @venue.update(venue_params)
       redirect_to @venue, notice: "L'établissement a bien été mis à jour"
     else
-      redirect_to user_path(@venue.user), notice: "L'évènement n'a pas été mis à jour"
+      redirect_to user_path(@venue.user), notice: "L'évènement n'a pas pu être mis à jour"
     end
   end
 

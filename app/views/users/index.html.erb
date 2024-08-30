@@ -24,7 +24,7 @@
 
     <% if  current_user.role == "act" %>
     <div>
-      <h4 class="my-4">Organisateur</h4>
+      <h4 class="my-4">Organisateurs:</h4>
       <div class="grid-custom">
         <% @tenants.each do |user| %>
           <%= render "user-card", user: user %>
@@ -33,7 +33,7 @@
     </div>
     <hr />
     <div>
-      <h4 class="mt-5 mb-4">Groupe et musiciens</h4>
+      <h4 class="mt-5 mb-4">Groupes et musiciens:</h4>
       <div class="grid-custom">
         <% @acts.each do |user| %>
           <%= render "user-card", user: user %>
@@ -44,7 +44,7 @@
 
     <% if  current_user.role == "tenant" %>
     <div>
-      <h4 class="my-4">Groupe et musiciens</h4>
+      <h4 class="my-4">Groupes et musiciens:</h4>
       <div class="grid-custom">
         <% @acts.each do |user| %>
           <%= render "user-card", user: user %>
@@ -53,7 +53,7 @@
     </div>
     <hr />
     <div>
-      <h4 class="mt-5 mb-4">Organisateur</h4>
+      <h4 class="mt-5 mb-4">Organisateurs:</h4>
       <div class="grid-custom">
         <% @tenants.each do |user| %>
           <%= render "user-card", user: user %>

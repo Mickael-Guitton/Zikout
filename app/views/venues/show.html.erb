@@ -45,19 +45,19 @@
             <%= render "events/event-form", event: @new_event %>
           </div>
           <div class="modal-footer">
-            <button type="button" class="closing-button" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="closing-button" data-bs-dismiss="modal">Annuler</button>
             <button type="submit" class="button-custom" form="event_form">Ajouter</button>
           </div>
         </div>
       </div>
     </div>
 
-    <h2 class="mt-5"> Evénements à venir </h2>
+    <h2 class="mt-5"> Événements à venir </h2>
     <% @events.each do |event| %>
       <%= render "events/event", event: event %>
     <% end %>
     <hr />
-    <h2> Evénements passés </h2>
+    <h2> Événements passés </h2>
   </div>
 </div>
 <!-- class="modal-dialog modal-dialog-centered modal-dialog-scrollable" -->
