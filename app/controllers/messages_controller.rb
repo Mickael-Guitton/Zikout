@@ -9,9 +9,10 @@ class MessagesController < ApplicationController
     @message.user = @user
 
     if @message.save
-        respond_to do |format|
-          format.html { redirect_to event_path(@event) }
-        end
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to event_path(@event) }
+      end
     else
       render "events/show", status: :unprocessable_entity
     end

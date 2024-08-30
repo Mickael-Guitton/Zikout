@@ -1,7 +1,7 @@
 <%= link_to user_path(user), style: 'text-decoration: none; color: inherit' do %>
   <div class="user-card text-center">
     <div class="banner-user-card">
-    <%= image_tag user.avatar, class: "user-card-avatar" %>
+    <%= cl_image_tag user.avatar, class: "user-card-avatar" %>
     </div>
     <h2><%= user.name %></h2>
     <% if user.act? %>

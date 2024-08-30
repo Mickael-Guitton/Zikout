@@ -1,7 +1,7 @@
 <div class="message">
   <div class="<%= message.user == @user ? 'user-tag' : 'other-user-tag' %>">
       <% if message.user.avatar.attached? %>
-        <%= image_tag message.user.avatar, class: "avatar" %>
+        <%= cl_image_tag message.user.avatar, class: "avatar" %>
       <% end %>
       <%= message.user.name %>
   </div>
