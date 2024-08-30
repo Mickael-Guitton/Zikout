@@ -1,5 +1,5 @@
-<h2><%= @user.name %></h2>
-<h4><%= @user.city %></h4>
+<h2 class="mb-2 fs-4"><%= @user.name %></h2>
+<p class="mb-4">( <%= @user.city %> )</p>
 <% if @user.styles && @user.act? %>
   <ul class="list-unstyled">
   <% @user.styles.each do |style| %>
@@ -82,36 +82,24 @@
       </div>
     </div>
 <% end %>
+
+<p><strong>Contact :</strong> <%= @user.email %> </p>
+
 <ul class="d-flex mb- 0 list-unstyled">
-    <% if @user.instagram.present? %>
-      <li class="me-2">
-          <%= link_to "#", class: "me-4" do %>
-            <%= image_tag "icon_insta.svg", alt: "Instagram"%>
-          <% end %>
-      </li>
+  <li class="me-3">
+    <%= link_to "#", class: "me-4" do %>
+      <%= image_tag "icon_insta.svg", alt: "Instagram"%>
     <% end %>
-    <% if @user.facebook.present? %>
-      <li class="me-2">
-        <%= link_to "#", class: "me-4" do %>
-          <%= image_tag "icon_facebook.svg", alt: "Facebook"%>
-        <% end %>
-      </li>
+  </li>
+  <li class="me-3">
+    <%= link_to "#", class: "me-4" do %>
+      <%= image_tag "icon_facebook.svg", alt: "Facebook"%>
     <% end %>
-    <% if @user.listen_to_us.present? %>
-      <li class="me-2">
-        <%= link_to "#", class: "me-4" do %>
-          <%= image_tag "icon_soundcloud.svg", alt: "Soundcloud"%>
-        <% end %>
-      </li>
+  </li>
+  <li class="me-3">
+    <%= link_to "#", class: "me-4" do %>
+      <%= image_tag "icon_site_web.svg", alt: "Site web"%>
     <% end %>
-    <% if @user.website.present? %>
-      <li class="me-2">
-        <%= link_to "#", class: "me-4" do %>
-          <%= image_tag "icon_site_web.svg", alt: "Site Web"%>
-        <% end %>
-      </li>
-    <% end %>
-    </ul>
+  </li>
 </ul>
 
-<p> Mon email de Contact: <%= @user.email %> </p>

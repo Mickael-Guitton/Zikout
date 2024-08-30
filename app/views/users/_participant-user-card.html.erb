@@ -1,8 +1,8 @@
 <div class="participant-user-card">
     <%= link_to user_path(participant.user), style: 'text-decoration: none; color: inherit', target: '_blank' do %>
       <div class="banner-user-card">
-        <%= image_tag participant.user.banner, class: "user-card-banner" %>
-        <%= image_tag participant.user.avatar, class: "user-card-avatar" %>
+        <%= cl_image_tag participant.user.banner.key, class: "user-card-banner" %>
+        <%= cl_image_tag participant.user.avatar.key, class: "user-card-avatar" %>
       </div>
 
       <h2><%= participant.user.name %></h2>
