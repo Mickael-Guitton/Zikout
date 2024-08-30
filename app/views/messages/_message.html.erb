@@ -1,7 +1,7 @@
 <div class="message mt-2 ms-2">
   <div class="<%= message.user == @user ? 'user-tag' : 'other-user-tag' %>">
       <% if message.user.avatar.attached? %>
-        <%= cl_image_tag message.user.avatar, class: "avatar" %>
+        <%= cl_image_tag message.user.avatar.key, class: "avatar" %>
       <% end %>
       <strong class="ms-1 me-2"><%= message.user.name %></strong>
       <i><small><%= message.created_at.strftime("à %l:%M %p") %></small></i>
