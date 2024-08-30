@@ -1,7 +1,7 @@
 <%= link_to profile_path, :style=>'text-decoration: none; color: inherit' do %>
   <div class="my-user-card text-center d-flex flex-column align-items-center">
-    <%= image_tag(current_user.banner, class: "my-user-card_banner") %>
-    <%= image_tag(current_user.avatar, class: "my-user-card_avatar") %>
+    <%= cl_image_tag(current_user.banner, class: "my-user-card_banner") %>
+    <%= cl_image_tag(current_user.avatar, class: "my-user-card_avatar") %>
 
     <h2 class="fs-5 mb-2"><%= current_user.name %></h2>
     <% if current_user.act? %>

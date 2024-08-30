@@ -1,6 +1,6 @@
 <div class="banner mb-4">
-  <%= image_tag(@user.banner, class: "banner-img", alt: "Bannière de #{@user.name}") %>
-  <%= image_tag(@user.avatar, class: "banner-avatar", alt: "Photo de profil de #{@user.name}") %>
+  <%= cl_image_tag(@user.banner, class: "banner-img", alt: "Bannière de #{@user.name}") %>
+  <%= cl_image_tag(@user.avatar, class: "banner-avatar", alt: "Photo de profil de #{@user.name}") %>
 </div>
 
 
