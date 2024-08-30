@@ -25,13 +25,13 @@
 
         <% unless @event.is_locked == true %>
           <% if current_user == @venue.user %>
-            <%= button_to "Vérouiller Event", lock_event_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?", turbo_confirm: "Êtes-vous sûr de vouloir vérouiller votre Event ?" } %>
+            <%= button_to "Verrouiller Event", lock_event_event_path(@event), method: :patch, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir verrouiller votre Event ?", turbo_confirm: "Êtes-vous sûr de vouloir verrouiller votre Event ?" } %>
           <% end %>
 
           <% if current_user.role == "act" %>
             <div>
               <% if @already_applied %>
-                <%= button_to "Annuler", event_participant_path(@event, @participant), method: :delete, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir annuler votre candidature ?", turbo_confirm: "Êtes-vous sûr de vouloir cloturer votre Event ?" } %>
+                <%= button_to "Annuler", event_participant_path(@event, @participant), method: :delete, class: "button-custom", data: { confirm: "Êtes-vous sûr de vouloir annuler votre candidature ?", turbo_confirm: "Êtes-vous sûr de vouloir clôturer votre Event ?" } %>
               <% else %>
                 <%= button_to "Postuler", event_participants_path(@event), class: "button-custom", data: { turbo_method: :post } %>
               <% end %>
@@ -47,8 +47,8 @@
     <%= render "editing-event-form" %>
 
     <div class="d-flex">
-      <p class="me-1 fst-italic">Du <%= @event.fr_start_date %>,</p>
-      <p>au <%= @event.fr_end_date %></p>
+      <p class="me-1 fst-italic">Du <%= @event.fr_start_date %>, </p>
+      <p class="me-1 fst-italic">au <%= @event.fr_end_date %></p>
     </div>
 
     <p class="fw-light"><%= @event.description %></p>

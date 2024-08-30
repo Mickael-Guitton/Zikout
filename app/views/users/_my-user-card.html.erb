@@ -4,7 +4,12 @@
     <%= image_tag(current_user.avatar, class: "my-user-card_avatar") %>
 
     <h2 class="fs-5 mb-2"><%= current_user.name %></h2>
-    <p class="mb-4 fst-italic">Rock / Progressif</p>
+
+    <% if current_user.role == "tenant" %>
+      <p class="mb-4 fst-italic">Organisateur</p>
+    <% elsif current_user.role == "act" %>
+      <p class="mb-4 fst-italic">Musicien/Groupe</p>
+    <% end %>
 
     <p class="text-uppercase">(<%= current_user.city %>)</p>
   </div>

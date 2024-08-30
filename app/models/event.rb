@@ -15,7 +15,7 @@ class Event < ApplicationRecord
     date_str = start_date.to_s
     date_str = date_str.gsub(" UTC", "")
     date_obj = DateTime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
-    date_fr = date_obj.strftime("%a %-d %B %Y")
+    date_fr = date_obj.strftime("%a %-d %B %Y à %H:%M")
     jour_fr = {
       "Mon" => "Lundi",
       "Tue" => "Mardi",
@@ -47,13 +47,14 @@ class Event < ApplicationRecord
       date_fr.gsub!(eng, fr)
     end
     return date_fr
+
   end
 
   def fr_end_date
     date_str = end_date.to_s
     date_str = date_str.gsub(" UTC", "")
     date_obj = DateTime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
-    date_fr = date_obj.strftime("%a %-d %B %Y")
+    date_fr = date_obj.strftime("%a %-d %B %Y à %H:%M")
     jour_fr = {
       "Mon" => "Lundi",
       "Tue" => "Mardi",

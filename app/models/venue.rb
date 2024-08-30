@@ -12,14 +12,14 @@ class Venue < ApplicationRecord
   COUNTRY = ["France", "Belgique", "Suisse", "Luxembourg", "Canada", "Espagne", "Italie", "Allemagne", "Royaume-Uni", "États-Unis", "Australie", "Japon", "Chine", "Russie", "Brésil", "Argentine", "Autre"]
   validates :country, presence: true
   validates :description, presence: true
-  CATEGORIES = ["Bar", "Club", "Restaurant", "Salle de Spectacle", "Salle Polyvalente", "Théâtre", "Festival", "Autre"]
+  CATEGORIES = ["Bar", "Club", "Restaurant", "Salle de Spectacle", "Salle Polyvalente", "Théâtre", "Festival"]
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :capacity, presence: true
   SCENE_SIZE = ["très petite - 2m² à 6m²", "petite - 7m² à 14m²", "moyenne - 15m² à 24m²", "grande - 25m² à 35m²", "très grande - 36m² et plus"]
   validates :scene_size, presence: true
-  LODGING = ["OUI", "NON"]
+  LODGING = ["oui", "non"]
   validates :lodging, presence: true
-  PAYING = ["OUI", "NON"]
+  PAYING = ["oui", "non"]
   validates :paying, presence: true
 
   def introduce

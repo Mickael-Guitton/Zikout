@@ -3,7 +3,7 @@ class Style < ApplicationRecord
 
   validates :content, presence: true
 
-  CONTENTS = ["Jazz", "Pop", "Rock", "Classical", "Folk", "BBlues", "World", "Electronic", "Hip-hop", "Metal", "Reggae", "Punk", "Soul", "Funk", "Country", "Latin", "Other"]
+  CONTENTS = ["Jazz", "Pop", "Rock", "Classique", "Folk", "Blues", "Electronic", "Hip-hop", "Metal", "Reggae", "Punk", "Soul", "Funk", "Country", "Latin", "trip-hop"]
 
 
 end

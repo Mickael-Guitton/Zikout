@@ -6,5 +6,5 @@
       <%= message.user.name %>
   </div>
   <%= message.content %>
-  <i><small><%= message.created_at.strftime("%a %b %e à %l:%M %p") %></small></i>
+  <i><small>Posté le <%= message.formatted_created_at %></small></i>
 </div>

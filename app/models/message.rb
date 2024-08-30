@@ -17,6 +17,43 @@ class Message < ApplicationRecord
     (event_users + [venue_owner]).uniq
   end
 
+  def formatted_created_at
+    # Dictionnaires pour la traduction
+    jours_fr = {
+      "Monday" => "Lundi",
+      "Tuesday" => "Mardi",
+      "Wednesday" => "Mercredi",
+      "Thursday" => "Jeudi",
+      "Friday" => "Vendredi",
+      "Saturday" => "Samedi",
+      "Sunday" => "Dimanche"
+    }
+
+    mois_fr = {
+      "January" => "Janvier",
+      "February" => "Février",
+      "March" => "Mars",
+      "April" => "Avril",
+      "May" => "Mai",
+      "June" => "Juin",
+      "July" => "Juillet",
+      "August" => "Août",
+      "September" => "Septembre",
+      "October" => "Octobre",
+      "November" => "Novembre",
+      "December" => "Décembre"
+    }
+
+    # Formatter la date en anglais
+    date_fr = created_at.strftime("%A %-d %B %Y à %H:%M")
+
+    # Remplacer les jours et mois par leurs équivalents français
+    jours_fr.each { |eng, fr| date_fr.gsub!(eng, fr) }
+    mois_fr.each { |eng, fr| date_fr.gsub!(eng, fr) }
+
+    date_fr
+  end
+
   private
 
   def broadcast_message

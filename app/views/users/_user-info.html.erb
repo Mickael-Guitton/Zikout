@@ -9,7 +9,7 @@
 <% end %>
 
 <% if @user.members && @user.act? %>
-  <h4>Membres :</h4>
+  <h4>Membres:</h4>
   <ul class="list-unstyled">
     <% @user.members.each do |m| %>
       <li> <%= m[:nickname] %> : <%= m[:instrument] %> </li>
@@ -50,5 +50,5 @@
     </ul>
 </ul>
 <% if @user.public_email == true %>
-  <p>Contact : <%= @user.email %> </p>
+  <p>Contact: <%= @user.email %> </p>
 <% end %>
